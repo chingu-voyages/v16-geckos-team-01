@@ -38,7 +38,7 @@ class App extends Component {
     const { name, title, hidePrompt } = this.state;
     return (
       <div className="app">
-        <div className="screen" style={{ opacity: hidePrompt ? '0' : '1', zIndex: hidePrompt ? '-1' : '' }} />
+        <div className="screen" style={{ opacity: hidePrompt ? '0' : '1', zIndex: hidePrompt ? '-1' : '1' }} />
         {!hidePrompt
           && (
           <Prompt
@@ -49,7 +49,7 @@ class App extends Component {
             promptSubmit={this.handlePromptSubmit}
           />
           )}
-        <Headers name={name} title={title} submitted={hidePrompt} />
+        <Headers name={name} title={title} submitted={hidePrompt} changeTitle={this.addTitle} />
       </div>
     );
   }
