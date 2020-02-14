@@ -5,17 +5,39 @@ import Prompt from "./components/Prompt";
 class App extends Component {
   constructor(props) {
     super(props)
+    this.state = {
+      name: "",
+      title: "",
+      hidePrompt: false,
+    }
   }
 
-  handleSubmit = (e) => {
+  handleAddName = (e) => {
+    const input = e.target.value;
+    this.setState({
+      name: !input.trim() ? "" : input,
+    })
+  }
+
+  handleAddTitle = (e) => {
+    const input = e.target.value;
+    this.setState({
+      title: !input.trim() ? "" : input,
+    })
+  }
+
+  handlePromptSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target.value)
+    this.setState({
+      hidePrompt: true,
+    })
   }
   render() {
+    const {name, title, hidePrompt} = this.state;
     return (
-      <div className="App">
-        <Prompt submit={this.handleSubmit}/>
-        <h1 className="page-header">Trello Clone</h1>
+      <div className="app">
+        <div className="screen" style={{opacity: hidePrompt ? "0" : "1"}}></div>
+        {!hidePrompt && <Prompt name={name} title={title} addName={this.handleAddName} addTitle={this.handleAddTitle} promptSubmit={this.handlePromptSubmit}/>}
       </div>
     );
   }
