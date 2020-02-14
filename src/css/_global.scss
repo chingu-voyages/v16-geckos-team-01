@@ -1,6 +1,7 @@
-$dark-translucent: rgba(0, 0, 0, 0.25);
-$medium-translucent: rgba(0, 0, 0, 0.08);
-$light-translucent: rgba(255, 255, 255, 0.5);
+$dark-trans: rgba(0, 0, 0, 0.25);
+$medium-dark-trans: rgba(0, 0, 0, 0.08);
+$medium-light-trans: rgba(255, 255, 255, 0.3);
+$light-trans: rgba(255, 255, 255, 0.5);
 $light-gray: rgb(235, 236, 240);
 $dark-text: rgb(23, 43, 77);
 $light-text: rgb(94, 108, 132);
@@ -11,4 +12,18 @@ button {
     outline: none;
     cursor: pointer;
     border: none;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+.initials {
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    background: $light-gray;
+    color: $dark-text;
+    font-weight: bold;
 }
