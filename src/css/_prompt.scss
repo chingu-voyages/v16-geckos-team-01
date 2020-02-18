@@ -25,7 +25,6 @@
         > * {
             padding: 10px;
             margin: 5px;
-            border-radius: 3px;
         }
     }
     input {
@@ -48,12 +47,7 @@
     }
     button {
         width: fit-content;
-        background: $btn-green;
-        color: white;
         text-align: left;
         font-size: inherit;
-    }
-    button:hover {
-        background: $btn-green-hover;
     }
 }

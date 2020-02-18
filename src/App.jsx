@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      members: [],
       name: '',
       title: '',
       hidePrompt: false,
@@ -28,14 +29,17 @@ class App extends Component {
   }
 
   handlePromptSubmit = (e) => {
+    const {members, name} = this.state;
     e.preventDefault();
     this.setState({
+      members: [...members, name],
+      name: '',
       hidePrompt: true,
     });
   }
 
   render() {
-    const { name, title, hidePrompt } = this.state;
+    const { members, name, title, hidePrompt } = this.state;
     return (
       <div className="app">
         <div className="screen" style={{ opacity: hidePrompt ? '0' : '1', zIndex: hidePrompt ? '-1' : '1' }} />
@@ -49,7 +53,14 @@ class App extends Component {
             promptSubmit={this.handlePromptSubmit}
           />
           )}
-        <Headers name={name} title={title} submitted={hidePrompt} changeTitle={this.addTitle} />
+        <Headers 
+            members={members} 
+            name={name} 
+            title={title} 
+            submitted={hidePrompt} 
+            changeName={this.handleAddName} 
+            addMember={this.handlePromptSubmit}
+        />
       </div>
     );
   }

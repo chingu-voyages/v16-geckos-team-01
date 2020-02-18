@@ -8,6 +8,11 @@ $light-text: rgb(94, 108, 132);
 $btn-green: rgb(90, 172, 68);
 $btn-green-hover: rgb(97, 189, 79);
 
+button, input {
+    border-radius: 3px;
+    font-size: 0.8em;
+}
+
 button {
     outline: none;
     cursor: pointer;
@@ -26,4 +31,63 @@ input {
     background: $light-gray;
     color: $dark-text;
     font-weight: bold;
+}
+
+.btn-green {
+    border-radius: 3px;
+    background: $btn-green;
+    color: white;
+}
+.btn-green:hover {
+    background: $btn-green-hover;
+}
+
+/* Pop-up module styling */
+
+.module {
+    background: white;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px $medium-dark-trans;
+    form {
+        display: flex;
+        flex-direction: column;
+    }
+    input {
+        border: 2px solid $light-gray;
+        margin: 8px 0;
+        padding: 8px;
+    }
+    input:hover {
+        background-color: rgb(241, 243, 245);
+    }
+    input:focus {
+        background-color: white;
+        border-color: rgb(0, 121, 191);
+    }
+}
+
+.module-header {
+    border: 1px solid white;
+    border-bottom-color: $light-gray;
+    padding-bottom: 8px;
+    h2 {
+        text-align: center;
+        color: $dark-text;
+        font-weight: normal;
+        margin: 0;
+        font-size: 0.8em;
+    }
+    button {
+        position: absolute;
+        top: 0;
+        right: 0;
+        color: $light-text;
+        background: none;
+    }
+    button:hover {
+        color: $dark-text;
+    }
 }

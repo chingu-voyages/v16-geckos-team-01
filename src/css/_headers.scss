@@ -19,7 +19,6 @@ header {
         color: inherit;
         height: 100%;
         background: $medium-light-trans;
-        border-radius: 3px;
         padding: 0 8px;
 
         i {
@@ -88,6 +87,9 @@ header {
             color: $medium-light-trans;
             padding: 0 5px;
         }
+        > div {
+            height: 100%;;
+        }
     }
     .title {
         cursor: pointer;
@@ -108,8 +110,22 @@ header {
     .initials {
         margin-right: 4px;
     }
+    .invite-section {
+        padding: 0;
+    }
+    .invite {
+        position: absolute;
+        margin-top: 5px;
+        button {
+            padding: 10px;
+        }
+        button:disabled {
+            background-color: $light-gray;
+            color: $light-text;
+            cursor: not-allowed;
+        }
+    }
     .header-btn:hover {
         background: rgba(255, 255, 255, 0.4)
     }
-
 }

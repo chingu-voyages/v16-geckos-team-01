@@ -10,7 +10,7 @@ function Prompt(props) {
       <form onSubmit={promptSubmit}>
         <input type="text" placeholder="Add name" onChange={addName} value={name} />
         <input type="text" placeholder="Add board title" onChange={addTitle} value={title} />
-        <button type="submit" disabled={!(name && title)}>
+        <button className="btn-green" type="submit" disabled={!(name && title)}>
           Get started
           <i className="fas fa-angle-double-right" />
         </button>

@@ -6,6 +6,7 @@ class Headers extends Component {
     super(props);
     this.state = {
       favorited: false,
+      inviteHidden: true,
     };
   }
 
@@ -16,10 +17,17 @@ class Headers extends Component {
       });
     }
 
+    handleHideInvite = () => {
+        const {inviteHidden} = this.state;
+        this.setState({
+            inviteHidden: !inviteHidden,
+        })
+    }
+
     render() {
-      const { favorited } = this.state;
+      const { favorited, inviteHidden } = this.state;
       const {
-        name, title, submitted, changeTitle,
+        members, name, title, submitted, changeName, addMember
       } = this.props;
       return (
         <header>
@@ -40,12 +48,12 @@ class Headers extends Component {
               <button className="header-btn" type="button"><i className="fas fa-plus" aria-label="Add" /></button>
               <button className="header-btn" type="button"><i className="fas fa-info-circle" aria-label="About" /></button>
               <button className="header-btn notifications" type="button"><i className="far fa-bell" aria-label="Notifications" /></button>
-              { submitted && <button className="initials" type="button">{name[0].toUpperCase()}</button>}
+              { submitted && <button className="initials" type="button">{members[0][0].toUpperCase()}</button>}
             </div>
           </section>
           <section className="options-bar">
             <div className="header-section">
-              { submitted && <div className="title header-btn" contentEditable suppressContentEditableWarning onChange={changeTitle}>{title}</div>}
+              { submitted && <div className="title header-btn" contentEditable suppressContentEditableWarning>{title}</div>}
               <button className="header-btn" type="button" onClick={this.handleOnFavorite}><i className="far fa-star" aria-label="Favorite" style={{ color: favorited ? 'gold' : '' }} /></button>
               <span>|</span>
               <button className="header-btn" type="button">Personal</button>
@@ -55,8 +63,20 @@ class Headers extends Component {
                 <span>Private</span>
               </button>
               <span>|</span>
-              { submitted && <button className="initials" type="button">{name[0].toUpperCase()}</button>}
-              <button className="header-btn" type="button">Invite</button>
+              { submitted && members.map(name => <button className="initials" type="button" key={name}>{name[0].toUpperCase()}</button>)}
+              <div className="invite-section">
+                  <button className="header-btn" type="button" onClick={this.handleHideInvite}>Invite</button>
+                  <div className="module invite" style={{display: inviteHidden ? "none" : ""}} onSubmit={addMember}>
+                      <div className="module-header">
+                          <h2>Invite To Board</h2>
+                          <button type="button" onClick={this.handleHideInvite}><i className="fas fa-times"/></button>
+                      </div>
+                      <form>
+                        <input type="text" placeholder="Name" value={name} onChange={changeName}/>
+                        <button className="btn-green" type="submit" disabled={!name || members.map(entry => entry.toLowerCase()).includes(name.toLowerCase())}>Send Invitation</button>
+                      </form>
+                  </div>
+              </div>
             </div>
             <div className="header-section">
               <button className="header-btn" type="button">
@@ -75,17 +95,17 @@ class Headers extends Component {
 }
 
 Headers.defaultProps = {
+  members: [],
   name: '',
   title: '',
   submitted: false,
-  changeTitle: () => {},
 };
 
 Headers.propTypes = {
+  members: PropTypes.array,
   name: PropTypes.string,
   title: PropTypes.string,
   submitted: PropTypes.bool,
-  changeTitle: PropTypes.func,
 };
 
 export default Headers;
