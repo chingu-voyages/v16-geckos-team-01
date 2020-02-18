@@ -1,0 +1,14 @@
+$dark-translucent: rgba(0, 0, 0, 0.25);
+$medium-translucent: rgba(0, 0, 0, 0.08);
+$light-translucent: rgba(255, 255, 255, 0.5);
+$light-gray: rgb(235, 236, 240);
+$dark-text: rgb(23, 43, 77);
+$light-text: rgb(94, 108, 132);
+$btn-green: rgb(90, 172, 68);
+$btn-green-hover: rgb(97, 189, 79);
+
+button {
+    outline: none;
+    cursor: pointer;
+    border: none;
+}

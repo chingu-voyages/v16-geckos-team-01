@@ -1,0 +1,58 @@
+.screen {
+    background: $dark-translucent;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition: 0.5s;
+}
+
+.prompt {
+    background-color: $light-gray;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    form {
+        display: flex;
+        flex-direction: column;
+        > * {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 3px;
+        }
+    }
+    input {
+        border: none;
+        background-color: transparent; 
+        color: $dark-text;
+        font-weight: bold;
+        font-size: 1em;
+        outline: none;
+    }
+    input::placeholder {
+        font-weight: normal;
+        color: $light-text;
+    }
+    input:hover {
+        background-color: $medium-translucent;
+    }
+    input:focus {
+        background-color: white;
+    }
+    button {
+        width: fit-content;
+        background: $btn-green;
+        color: white;
+        text-align: left;
+        font-size: inherit;
+    }
+    button:hover {
+        background: $btn-green-hover;
+    }
+}

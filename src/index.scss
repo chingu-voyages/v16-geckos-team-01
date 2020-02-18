@@ -1,13 +1,13 @@
+@import "./css/global";
+@import "./css/prompt";
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  max-width: 90%;
-  margin: 0 auto;
+  background: #1979bf;
 }
 
-.page-header{
-  text-align: center;
-  color: #002366;
-  margin: 0.4em;
+.app {
+  height: 100vh;
 }

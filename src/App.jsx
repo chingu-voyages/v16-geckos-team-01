@@ -1,12 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './index.scss';
+import Prompt from './components/Prompt';
 
-function App() {
+
+export default () => {
+  const [state, setState] = useState({ name: '', title: '', hidePrompt: false });
+
+  const handleAddName = (e) => {
+    const input = e.target.value;
+    setState({ ...state, name: !input.trim() ? '' : input });
+  };
+
+  const handleAddTitle = (e) => {
+    const input = e.target.value;
+    setState({ ...state, title: !input.trim() ? '' : input });
+  };
+
+  const handlePromptSubmit = (e) => {
+    e.preventDefault();
+    setState({ ...state, hidePrompt: true });
+  };
   return (
-    <div className="App">
-      <h1 className="page-header">Trello Clone</h1>
+    <div className="app">
+      <div className="screen" style={{ opacity: state.hidePrompt ? '0' : '1' }} />
+      {!state.hidePrompt
+        && (
+        <Prompt
+          name={state.name}
+          title={state.title}
+          addName={handleAddName}
+          addTitle={handleAddTitle}
+          promptSubmit={handlePromptSubmit}
+        />
+        )}
     </div>
   );
-}
-
-export default App;
+};
