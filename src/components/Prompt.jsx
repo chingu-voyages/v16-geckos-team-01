@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Prompt(props) {
-    const { name, title, addName, addTitle, promptSubmit } = props;
+function Prompt({name,title,addName,addTitle,promptSubmit}) {
+    
   return (
     <div className="prompt">
         <form onSubmit={promptSubmit}>

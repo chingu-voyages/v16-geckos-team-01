@@ -1,46 +1,50 @@
-import React, {Component} from 'react';
+import React,{useState}from 'react';
 import './index.scss';
 import Prompt from "./components/Prompt";
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      name: "",
-      title: "",
-      hidePrompt: false,
-    }
-  }
 
-  handleAddName = (e) => {
+  export default()=>{
+  const [state, setState]=useState({name:"",title:"",hidePrompt:false})
+// class App extends Component {
+  // constructor(props) {
+  //   super(props)
+  //   this.state = {
+  //     name: "",
+  //     title: "",
+  //     hidePrompt: false,
+  //   }
+  // }
+  const handleAddName = (e) => {
     const input = e.target.value;
-    this.setState({
-      name: !input.trim() ? "" : input,
-    })
+    // this.setState({
+    //   name: !input.trim() ? "" : input,
+    // })
+    setState({...state, name:!input.trim()?"":input})
   }
 
-  handleAddTitle = (e) => {
+  const handleAddTitle = (e) => {
     const input = e.target.value;
-    this.setState({
-      title: !input.trim() ? "" : input,
-    })
+    // this.setState({
+    //   title: !input.trim() ? "" : input,
+    // })
+    setState({...state, title:!input.trim()?"":input})
   }
 
-  handlePromptSubmit = (e) => {
+  const handlePromptSubmit = (e) => {
     e.preventDefault();
-    this.setState({
-      hidePrompt: true,
-    })
+    // this.setState({
+    //   hidePrompt: true,
+    // })
+    setState({...state,hidePrompt:true})
   }
-  render() {
-    const {name, title, hidePrompt} = this.state;
+  // render() {
     return (
       <div className="app">
-        <div className="screen" style={{opacity: hidePrompt ? "0" : "1"}}></div>
-        {!hidePrompt && <Prompt name={name} title={title} addName={this.handleAddName} addTitle={this.handleAddTitle} promptSubmit={this.handlePromptSubmit}/>}
+        <div className="screen" style={{opacity: state.hidePrompt ? "0" : "1"}}></div>
+        {!state.hidePrompt && <Prompt name={state.name} title={state.title} addName={e=>handleAddName(e)} addTitle={e=>handleAddTitle(e)} promptSubmit={e=>handlePromptSubmit(e)}/>}
       </div>
     );
-  }
+  // }
 }
 
-export default App;
+// export default App;
