@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
 function Headers({
-  members, name, title, submitted, changeName, addMember,
+  members, name, title, submitted, changeName, addMember, removeMember,
 }) {
   const [state, setState] = useState({ favorited: false, inviteHidden: true, module: '' });
 
@@ -50,20 +50,24 @@ function Headers({
             <span>Private</span>
           </button>
           <span>|</span>
-          { submitted && members.map((entry) => (
+          { submitted && members.map((entry, i) => (
             <div className="member-info" key={entry}>
               <button className="initials" type="button" name={`module-${entry}`} onClick={handleToggleModule}>{entry[0].toUpperCase()}</button>
+              {!i && <i className="fas fa-angle-double-up" />}
               <div className="module" style={{ display: state.module === `module-${entry}` ? '' : 'none' }}>
-                <div className="initials">{entry[0].toUpperCase()}</div>
                 <div>
-                  <span className="full-name">{entry}</span>
-                  <span className="handle">
-                    @
-                    {entry.toLowerCase().replace(/\s/g, '')}
-                  </span>
-                  <span className="edit-profile">Edit profile info</span>
+                  <div className="initials">{entry[0].toUpperCase()}</div>
+                  <div>
+                    <span className="full-name">{entry}</span>
+                    <span className="handle">
+                      @
+                      {entry.toLowerCase().replace(/\s/g, '')}
+                    </span>
+                    <span className="edit-profile">Edit profile info</span>
+                  </div>
+                  <button className="exit-module" type="button" name={`module-${entry}`} onClick={handleToggleModule}><i className="fas fa-times" aria-label="Close member info module" /></button>
                 </div>
-                <button className="exit-module" type="button" name={`module-${entry}`} onClick={handleToggleModule}><i className="fas fa-times" aria-label="Close member info module" /></button>
+                {!!i && <button className="remove-member" type="button" name={entry} onClick={removeMember}>Remove Member</button>}
               </div>
             </div>
           ))}
@@ -103,6 +107,7 @@ Headers.defaultProps = {
   submitted: false,
   changeName: () => {},
   addMember: () => {},
+  removeMember: () => {},
 };
 
 Headers.propTypes = {
@@ -112,6 +117,7 @@ Headers.propTypes = {
   submitted: PropTypes.bool,
   changeName: PropTypes.func,
   addMember: PropTypes.func,
+  removeMember: PropTypes.func,
 };
 
 export default Headers;

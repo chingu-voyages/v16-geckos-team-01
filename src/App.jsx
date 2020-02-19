@@ -28,6 +28,16 @@ export default () => {
     });
   };
 
+  // Remove a member from the board
+  const handleRemoveMember = (e) => {
+    const updated = [...state.members];
+    const toRemove = updated.indexOf(e.target.name);
+    setState({
+      ...state,
+      members: updated.slice(0, toRemove).concat(updated.slice(toRemove + 1, updated.length)),
+    });
+  };
+
   return (
     <div className="app">
       <div className="screen" style={{ opacity: state.hidePrompt ? '0' : '1', zIndex: state.hidePrompt ? '-1' : '1' }} />
@@ -47,6 +57,7 @@ export default () => {
         submitted={state.hidePrompt}
         changeName={handleAddInfo}
         addMember={handlePromptSubmit}
+        removeMember={handleRemoveMember}
       />
     </div>
   );

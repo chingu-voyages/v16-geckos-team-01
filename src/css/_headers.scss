@@ -141,6 +141,14 @@ header {
 
 .member-info {
     color: $dark-text;
+    position: relative;
+    .fa-angle-double-up {
+        position: absolute;
+        top: 19.5px;
+        left: 17.5px;
+        font-size: 0.7em;
+        color: rgb(123, 122, 194);
+    }
     > .initials {
         margin: 2px 0;
         font-size: 0.75em;
@@ -151,9 +159,13 @@ header {
     .module {
         position: absolute;
         display: flex;
+        flex-direction: column;
+    }
+    .module > div {
+        display: flex;
         flex-direction: row;
     }
-    .module div{
+    .module > div > div {
         display: flex;
         flex-direction: column;
         margin-right: 20px;
@@ -184,4 +196,15 @@ header {
 }
 .edit-profile:hover {
     color: $dark-text;
+}
+
+.remove-member {
+    background: #cf513d;
+    color: white;
+    padding: 8px;
+    margin-top: 10px;
+}
+
+.remove-member:hover {
+    background: #eb5a46;
 }
