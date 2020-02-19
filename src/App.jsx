@@ -8,20 +8,15 @@ export default () => {
     members: [], name: '', title: '', hidePrompt: false,
   });
 
-  const handleAddName = (e) => {
+  // Add name or title
+  const handleAddInfo = (e) => {
     const input = e.target.value;
     setState({
-      ...state, name: !input.trim() ? '' : input,
+      ...state, [e.target.name]: !input.trim() ? '' : input,
     });
   };
 
-  const handleAddTitle = (e) => {
-    const input = e.target.value;
-    setState({
-      ...state, title: !input.trim() ? '' : input,
-    });
-  };
-
+  // Submit form to add members
   const handlePromptSubmit = (e) => {
     const { members, name } = state;
     e.preventDefault();
@@ -41,8 +36,7 @@ export default () => {
           <Prompt
             name={state.name}
             title={state.title}
-            addName={handleAddName}
-            addTitle={handleAddTitle}
+            addInfo={handleAddInfo}
             promptSubmit={handlePromptSubmit}
           />
           )}
@@ -51,7 +45,7 @@ export default () => {
         name={state.name}
         title={state.title}
         submitted={state.hidePrompt}
-        changeName={handleAddName}
+        changeName={handleAddInfo}
         addMember={handlePromptSubmit}
       />
     </div>

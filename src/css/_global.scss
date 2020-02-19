@@ -10,7 +10,7 @@ $btn-green-hover: rgb(97, 189, 79);
 
 button, input {
     border-radius: 3px;
-    font-size: 0.8em;
+    font-size: 0.875em;
 }
 
 button {
@@ -31,6 +31,13 @@ input {
     background: $light-gray;
     color: $dark-text;
     font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.initials:hover {
+    background: lightgray;
 }
 
 .btn-green {
@@ -49,6 +56,7 @@ input {
     display: flex;
     flex-direction: column;
     padding: 10px;
+    margin-top: 5px;
     border-radius: 3px;
     box-shadow: 0 0 5px $medium-dark-trans;
     form {
@@ -80,14 +88,21 @@ input {
         margin: 0;
         font-size: 0.8em;
     }
-    button {
-        position: absolute;
-        top: 0;
-        right: 0;
-        color: $light-text;
-        background: none;
+    i {
+        z-index: -1;
+        position: relative;
     }
-    button:hover {
-        color: $dark-text;
-    }
+}
+
+.exit-module {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    color: $light-text;
+    background: none;
+}
+
+.exit-module:hover {
+    color: $dark-text;
 }

@@ -7,33 +7,37 @@ header {
         box-sizing: border-box;
 
     }
-    .header-section {
-        height: 100%;
-        display: flex;
-        align-items: center;
-    }
     button {
         margin: 0 2px;
     }
-    .header-btn {
-        color: inherit;
-        height: 100%;
-        background: $medium-light-trans;
-        padding: 0 8px;
-
-        i {
-            font-size: 1em;
-        }
-        span {
-            padding-left: 10px;
-        }
-    }
-    .header-btn:hover {
-        background: rgba(255, 255, 255, 0.2)
-    }
 }
 
-.header {
+.header-section {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.header-btn {
+    display: flex;
+    color: inherit;
+    height: 100%;
+    background: $medium-light-trans;
+    padding: 0 8px;
+    i {
+        font-size: 1em;
+    }
+    span {
+        padding-left: 10px;
+        white-space: nowrap;
+    }
+}
+.header-btn:hover {
+    background: rgba(255, 255, 255, 0.2)
+}
+
+/* Top bar styling */
+.trello-bar {
     position: relative;
     width: 100%;
     height: 40px;
@@ -59,21 +63,25 @@ header {
         top: 0;
         bottom: 0;
         font-family: 'Damion', cursive;
-        font-size: 1.5em;
+        font-size: 1.7em;
         color: $light-trans;
         i {
             padding-right: 1.5px;
             font-size: 0.8em;
         }
     }
-
     .notifications {
         background: hsl(188,100,43);
     }
     .notifications:hover {
         background: hsl(188,100,40);
+    }
+    .initials:hover {
+        background: $light-gray;
     }    
 }
+
+/* Options bar styling */
 
 .options-bar {
     height: 48px;
@@ -107,15 +115,16 @@ header {
         cursor: auto;
         border-radius: 0;
     }
-    .initials {
-        margin-right: 4px;
+    .member-info {
+        margin: 0;
+        padding: 0;
     }
     .invite-section {
         padding: 0;
+        margin-left: 4px;
     }
     .invite {
         position: absolute;
-        margin-top: 5px;
         button {
             padding: 10px;
         }
@@ -128,4 +137,51 @@ header {
     .header-btn:hover {
         background: rgba(255, 255, 255, 0.4)
     }
+}
+
+.member-info {
+    color: $dark-text;
+    > .initials {
+        margin: 2px 0;
+        font-size: 0.75em;
+        padding: 5px;
+        width: 28px;
+        height: 28px;
+    }
+    .module {
+        position: absolute;
+        display: flex;
+        flex-direction: row;
+    }
+    .module div{
+        display: flex;
+        flex-direction: column;
+        margin-right: 20px;
+    }
+    .module .initials {
+        padding: 9px;
+        margin-right: 10px;
+        font-size: 1em;
+    }
+    button {
+        top: 10px;
+        right: 5px;
+    }
+}
+.full-name {
+    font-size: 1em;
+    font-weight: bold;
+}
+.handle, .edit-profile {
+    color: $light-text;
+    font-size: 0.875em;
+    margin-top: 3px;
+}
+.edit-profile {
+    text-decoration: underline;
+    cursor: pointer;
+    white-space: nowrap;
+}
+.edit-profile:hover {
+    color: $dark-text;
 }

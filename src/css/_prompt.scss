@@ -19,6 +19,7 @@
     width: fit-content;
     height: fit-content;
     padding: 20px;
+    font-size: 0.875em;
     form {
         display: flex;
         flex-direction: column;
@@ -49,5 +50,8 @@
         width: fit-content;
         text-align: left;
         font-size: inherit;
+    }
+    i {
+        margin-left: 5px;
     }
 }
