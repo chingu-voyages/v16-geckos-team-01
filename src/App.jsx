@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './index.scss';
 import Prompt from './components/Prompt';
-
+import Card from './components/Card/Card'
 
 export default () => {
   const [state, setState] = useState({ name: '', title: '', hidePrompt: false });
@@ -22,9 +22,10 @@ export default () => {
   };
   return (
     <div className="app">
-      <div className="screen" style={{ opacity: state.hidePrompt ? '0' : '1' }} />
-      {!state.hidePrompt
-        && (
+      {/* <div className="screen" style={{ opacity: state.hidePrompt ? '0' : '1'}} /> */}
+      {state.hidePrompt?<Card />:
+      <div>
+     
         <Prompt
           name={state.name}
           title={state.title}
@@ -32,7 +33,11 @@ export default () => {
           addTitle={handleAddTitle}
           promptSubmit={handlePromptSubmit}
         />
-        )}
+      
+      </div>
+            
+        }
+         
     </div>
   );
 };
