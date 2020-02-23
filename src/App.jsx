@@ -38,18 +38,22 @@ export default () => {
     });
   };
 
+  const screenStyle = { opacity: state.hidePrompt ? '0' : '1', zIndex: state.hidePrompt ? '-1' : '1' };
+
+  const promptControl = !state.hidePrompt
+    && (
+    <Prompt
+      name={state.name}
+      title={state.title}
+      addInfo={handleAddInfo}
+      promptSubmit={handlePromptSubmit}
+    />
+    );
+
   return (
     <div className="app">
-      <div className="screen" style={{ opacity: state.hidePrompt ? '0' : '1', zIndex: state.hidePrompt ? '-1' : '1' }} />
-      {!state.hidePrompt
-          && (
-          <Prompt
-            name={state.name}
-            title={state.title}
-            addInfo={handleAddInfo}
-            promptSubmit={handlePromptSubmit}
-          />
-          )}
+      <div className="screen" style={screenStyle} />
+      {promptControl}
       <Headers
         members={state.members}
         name={state.name}

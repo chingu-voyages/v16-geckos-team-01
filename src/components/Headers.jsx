@@ -79,7 +79,7 @@ function Headers({
                 <button className="exit-module" type="button" name="inviteHidden" onClick={handleToggleModule}><i className="fas fa-times" aria-label="Close invite module" /></button>
               </div>
               <form name="inviteHidden" onSubmit={addMember}>
-                <input type="text" placeholder="Name" value={name} name="name" onChange={changeName} />
+                <input type="text" placeholder="Name" value={name} name="name" autoComplete="off" onChange={changeName} />
                 <button className="btn-green" type="submit" disabled={!name || members.map((entry) => entry.toLowerCase().replace(/\s/g, '')).includes(name.toLowerCase().replace(/\s/g, ''))}>Send Invitation</button>
               </form>
             </div>
