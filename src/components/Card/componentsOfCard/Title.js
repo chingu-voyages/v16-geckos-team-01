@@ -10,30 +10,28 @@ export default ({ todos, setTodos }) => {
   };
 
   const handleSubmit = e => {
-    e.preventDefault();
     setTodos(title);
-
-    setIsEditing(false);
   };
 
 //   const handleToggle = e => {
 //     setIsEditing(true);
 //   };
 
+    
   let result = (
-    <div>
-      <form>
+    <div  className="title">
+      
         <input
-          className="title-input"
           type="text"
           value={title}
           name="title"
           onFocus={e => e.target.select()}
           onBlur={e => handleSubmit(e)}
           onChange={e => handleChange(e)}
+          onKeyPress={e=>e.key==="Enter"&&handleSubmit(e)}
         />
-       
-      </form>
+        <i className="fas fa-ellipsis-h"></i>
+
      
     </div>
   );
