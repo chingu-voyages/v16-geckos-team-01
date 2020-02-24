@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './index.scss';
 import Prompt from './components/Prompt';
 import Headers from './components/Headers';
+import Card from './components/Card/Card'
 
 export default () => {
   const [state, setState] = useState({
@@ -52,17 +53,22 @@ export default () => {
 
   return (
     <div className="app">
-      <div className="screen" style={screenStyle} />
-      {promptControl}
-      <Headers
-        members={state.members}
-        name={state.name}
-        title={state.title}
-        submitted={state.hidePrompt}
-        changeName={handleAddInfo}
-        addMember={handlePromptSubmit}
-        removeMember={handleRemoveMember}
-      />
+      {/* <div className="screen" style={{ opacity: state.hidePrompt ? '0' : '1'}} /> */}
+      {state.hidePrompt?<Card />:
+      <div>
+     
+        <Prompt
+          name={state.name}
+          title={state.title}
+          addName={handleAddName}
+          addTitle={handleAddTitle}
+          promptSubmit={handlePromptSubmit}
+        />
+      
+      </div>
+            
+        }
+         
     </div>
   );
 };

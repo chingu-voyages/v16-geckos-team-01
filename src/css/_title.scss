@@ -1,0 +1,22 @@
+.title{
+    input{
+      margin:10px 18px 0px;
+      border: none;
+      cursor: pointer;
+      background-color: transparent; 
+      color: $dark-text; 
+      font-weight: bold;
+      font-size: 1em;
+      outline: none;
+      &:focus{
+        background-color: white;
+        outline: #5E9ED6 solid 2px;
+      }
+    }
+    i{
+      color: #C0C0C0;
+      cursor: pointer;
+      margin-left: 2.3rem;
+    }
+   
+  }
