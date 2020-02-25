@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import './index.scss';
 import Prompt from './components/Prompt';
 import Headers from './components/Headers';
-import Card from './components/Card/Card'
+import InterfaceCard from './components/InterfaceCard/InterfaceCard'
 
 export default () => {
   const [state, setState] = useState({
     members: [], name: '', title: '', hidePrompt: false,
   });
-
+  const [todos, setTodos] = useState("Card")
   // Add name or title
   const handleAddInfo = (e) => {
     const input = e.target.value;
@@ -50,25 +50,21 @@ export default () => {
       promptSubmit={handlePromptSubmit}
     />
     );
-
+    console.log(todos)
   return (
     <div className="app">
-      {/* <div className="screen" style={{ opacity: state.hidePrompt ? '0' : '1'}} /> */}
-      {state.hidePrompt?<Card />:
-      <div>
-     
-        <Prompt
-          name={state.name}
-          title={state.title}
-          addName={handleAddName}
-          addTitle={handleAddTitle}
-          promptSubmit={handlePromptSubmit}
-        />
-      
-      </div>
-            
-        }
-         
+    <div className="screen" style={screenStyle} />
+      {promptControl}
+      <Headers
+        members={state.members}
+        name={state.name}
+        title={state.title}
+        submitted={state.hidePrompt}
+        changeName={handleAddInfo}
+        addMember={handlePromptSubmit}
+        removeMember={handleRemoveMember}
+      />
+      <InterfaceCard todos={todos} setTodos={setTodos} />
     </div>
   );
 };
