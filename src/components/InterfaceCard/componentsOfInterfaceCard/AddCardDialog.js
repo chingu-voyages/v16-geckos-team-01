@@ -1,10 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
 
-export default ()=>{
+export default ({getItem,setIsAdd})=>{
+    const [cardContent, setCardContent]=useState("")
+    const AddCard=(e)=>{
+        e.preventDefault()
+        getItem(cardContent)
+        setIsAdd(false)
+ 
+    }
     return(
-        <div> 
-            <input placeholder="Enter a title for this card..."></input> 
-            <button>Add Card</button><i className="fas fa-times"></i> 
+        <div className="AddCardDialog"> 
+            <form onSubmit={e=>AddCard(e)} >
+                <input onChange={e=>setCardContent(e.target.value)} placeholder="Enter a title for this card..."></input> 
+                <button>Add Card</button><i className="fas fa-times"></i> 
+            </form>
         </div>    
        
     )

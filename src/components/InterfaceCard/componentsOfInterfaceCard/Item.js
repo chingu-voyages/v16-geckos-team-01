@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default ()=>{
+export default ({i})=>{
     return(
-        <div className="item">The first Card</div>
+        <div className="item">{i}</div>
     )
 }
