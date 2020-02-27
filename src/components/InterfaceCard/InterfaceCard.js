@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import Title from './componentsOfInterfaceCard/Title'
 import Item from './componentsOfInterfaceCard/Item'
 import AddBtn from './componentsOfInterfaceCard/AddBtn'
+
 export default ({todos, setTodos})=>{
   
   const [item, setItem]=useState([])
@@ -11,10 +12,10 @@ export default ({todos, setTodos})=>{
   }
 
   const displayItem=()=>{
-    return item.map(i=> <Item i={i} />) 
+    return item.map(i=> <Item key={i.id} cardName={i.cardName} id={i.id}/>) 
   }
-  console.log(item)
 
+console.log(item)
   return(
     <div className="interfaceCard">
         <Title

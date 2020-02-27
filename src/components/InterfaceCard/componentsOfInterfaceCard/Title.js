@@ -1,38 +1,34 @@
-import React, { useState } from "react";
-  
+import React, { useState, useRef } from "react";
+
 
 export default ({ todos, setTodos }) => {
   const [title, setTitle] = useState(todos);
-  const [isEditing, setIsEditing] = useState(false);
-
+ 
   const handleChange = e => {
     setTitle(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit =()=> {
     setTodos(title);
   };
 
-//   const handleToggle = e => {
-//     setIsEditing(true);
-//   };
-
+  const inputRef=useRef();
     
   let result = (
     <div  className="title">
       
         <input
+          ref={inputRef}
           type="text"
           value={title}
           name="title"
           onFocus={e => e.target.select()}
-          onBlur={e => handleSubmit(e)}
+          onBlur={handleSubmit()}
           onChange={e => handleChange(e)}
-          onKeyPress={e=>e.key==="Enter"&&handleSubmit(e)}
+          onKeyPress={e=>{
+            if(e.key==="Enter"){handleSubmit(e);inputRef.current.blur()}}}
         />
         <i className="fas fa-ellipsis-h"></i>
-
-     
     </div>
   );
 

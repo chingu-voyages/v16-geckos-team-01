@@ -1,5 +1,15 @@
 .AddCardDialog{
-    margin: 1rem;
-    
-    
+    textarea{
+     border: none;
+     overflow: auto;
+     outline: none;
+     resize: none; 
+     margin: 5px 10px;
+     padding:10px;
+     
+     font-size: 1rem;
+     border-radius: 0.2rem;
+     box-shadow: 0px 1px	#C0C0C0;
+   }
+ 
 }
