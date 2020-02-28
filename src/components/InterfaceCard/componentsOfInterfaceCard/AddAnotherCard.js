@@ -7,7 +7,7 @@ export default ({getItem})=>{
     }
     return(
         <div>
-            {isAdd?<AddCardDialog getItem={getItem} setIsAdd={setIsAdd}/>:<div className="addBtn" onClick={addACard}><i className="fa fa-plus fa-xs"></i>Add another card</div>
+            {isAdd?<AddCardDialog getItem={getItem} setIsAdd={setIsAdd}/>:<div className="addAnotherCard" onClick={addACard}><i className="fa fa-plus fa-xs"></i>Add another card</div>
             }
         </div>
     )

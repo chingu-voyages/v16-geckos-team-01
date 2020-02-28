@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import Title from './componentsOfInterfaceCard/Title'
 import Item from './componentsOfInterfaceCard/Item'
-import AddBtn from './componentsOfInterfaceCard/AddBtn'
+import AddAnotherCard from './componentsOfInterfaceCard/AddAnotherCard'
 
 export default ({todos, setTodos})=>{
   
@@ -24,7 +24,7 @@ console.log(item)
         />
         {displayItem()}
         
-        <AddBtn getItem={getItem}/>
+        <AddAnotherCard getItem={getItem}/>
       </div>
   )
 }
