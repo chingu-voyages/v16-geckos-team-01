@@ -28,7 +28,7 @@ export default ({ todos, setTodos }) => {
           onKeyPress={e=>{
             if(e.key==="Enter"){handleSubmit(e);inputRef.current.blur()}}}
         />
-        <i className="fas fa-ellipsis-h"></i>
+        <button><i className="fas fa-ellipsis-h fa-sm"></i></button>
     </div>
   );
 

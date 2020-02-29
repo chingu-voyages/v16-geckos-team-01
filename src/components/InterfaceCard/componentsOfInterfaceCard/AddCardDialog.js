@@ -10,7 +10,8 @@ export default ({getItem,setIsAdd})=>{
  
     }
     const CancelCard=()=>{
-        setIsAdd(true)
+        setIsAdd(false)
+        console.log("ok")
     }
     return(
         <div className="addCardDialog"> 
@@ -18,9 +19,10 @@ export default ({getItem,setIsAdd})=>{
                 <textarea rows = "3" cols = "29" onChange={e=>setCardContent({...cardContent,cardName:e.target.value})} placeholder="Enter a title for this card..."></textarea> 
                 <br/>
                 <button className="addBtn" >Add Card</button>
-                <button className="cancelBtn" onClick={CancelCard()} ><i className="fas fa-times fa-lg"></i> </button>
-                <button className="ellipsis" ><i className="fas fa-ellipsis-h"></i></button>
+                <button className="cancelBtn" type="button" onClick={CancelCard}  ><i className="fas fa-times fa-lg"></i></button>
+                <button className="ellipsis" type="button" ><i className="fas fa-ellipsis-h fa-lg"></i></button>
             </form>
+           
            
         </div>    
        
