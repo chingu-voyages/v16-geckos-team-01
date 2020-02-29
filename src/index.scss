@@ -6,6 +6,7 @@
 @import "./css/item";
 @import "./css/addAnotherCard";
 @import "./css/addCardDialog";
+@import "./css/addAnotherList";
 
 body {
   margin: 0;
@@ -16,4 +17,9 @@ body {
 
 .app {
   height: 100vh;
+  width: auto;
+  
+}
+.body{
+  display: flex;
 }

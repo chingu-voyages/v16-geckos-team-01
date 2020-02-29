@@ -1,0 +1,26 @@
+.addAnotherList{
+    margin-left: 0px;
+    margin-top: 0.5rem;
+    padding: 0.6rem 9rem 0.6rem 0.8rem;
+    border: none;
+    cursor: pointer;
+    color: 	#FFFFFF;
+    background-color:#C0C0C0;
+    opacity: 0.7;
+    border-radius: 0.2rem;
+    font-weight: 100m;
+    font-size: 1em;
+    outline: none;
+    i{
+      color: #FFFFFF;
+      padding-right: 0.3rem;
+    }
+    &:hover {
+      background-color: #D8D8D8;
+      color:  #ffffff;
+      margin-left: 0px;
+      margin-top: 0.5rem;
+      padding: 0.6rem 9rem 0.6rem 0.8rem;
+      border-radius: 0.2rem;
+  }
+}

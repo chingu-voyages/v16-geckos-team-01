@@ -3,6 +3,7 @@ import './index.scss';
 import Prompt from './components/Prompt';
 import Headers from './components/Headers';
 import InterfaceCard from './components/InterfaceCard/InterfaceCard'
+import AddAnotherList from './components/AddAnotherList'
 
 export default () => {
   const [state, setState] = useState({
@@ -56,18 +57,21 @@ export default () => {
     console.log(todos)
   return (
     <div className="app">
-    <div className="screen" style={screenStyle} />
-      {promptControl}
-      <Headers
-        members={state.members}
-        name={state.name}
-        title={state.title}
-        submitted={state.hidePrompt}
-        changeName={handleAddInfo}
-        addMember={handlePromptSubmit}
-        removeMember={handleRemoveMember}
-      />
-      <InterfaceCard todos={todos} setTodos={setTodos} />
+      <div className="screen" style={screenStyle} />
+        {promptControl}
+        <Headers
+          members={state.members}
+          name={state.name}
+          title={state.title}
+          submitted={state.hidePrompt}
+          changeName={handleAddInfo}
+          addMember={handlePromptSubmit}
+          removeMember={handleRemoveMember}
+        />
+        <div className="body">
+        <InterfaceCard todos={todos} setTodos={setTodos} />
+        <AddAnotherList />
+        </div>
     </div>
   );
 };
