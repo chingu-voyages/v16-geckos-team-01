@@ -70,7 +70,7 @@ export default () => {
         />
         <div className="body">
         <InterfaceCard todos={todos} setTodos={setTodos} />
-        <AddAnotherList />
+        <AddAnotherList setTodos={setTodos} />
         </div>
     </div>
   );

@@ -11,7 +11,6 @@ export default ({getItem,setIsAdd})=>{
     }
     const CancelCard=()=>{
         setIsAdd(false)
-        console.log("ok")
     }
     return(
         <div className="addCardDialog"> 

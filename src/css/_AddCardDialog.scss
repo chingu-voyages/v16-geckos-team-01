@@ -21,9 +21,9 @@
     color: white;
     padding: 10px 13px;
     margin: 5px 10px;
-}
-.addBtn:hover {
-    background: $btn-green-hover;
+    &:hover{
+        background: $btn-green-hover;
+    }
 }
 
 .cancelBtn{
