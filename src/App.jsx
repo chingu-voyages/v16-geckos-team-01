@@ -9,9 +9,11 @@ export default () => {
   const [state, setState] = useState({
     members: [], name: '', title: '', hidePrompt: false,
   });
-  const [todos, setTodos] = useState("Card")
+  const [todos, setTodos] = useState([])
   
-
+  const getListInfo=(list)=>{
+    setTodos([...todos, list])
+  }
 
   // Add name or title
   const handleAddInfo = (e) => {
@@ -54,7 +56,7 @@ export default () => {
       promptSubmit={handlePromptSubmit}
     />
     );
-    console.log(todos)
+    console.log(todos,"ok")
   return (
     <div className="app">
       <div className="screen" style={screenStyle} />
@@ -69,8 +71,8 @@ export default () => {
           removeMember={handleRemoveMember}
         />
         <div className="body">
-        <InterfaceCard todos={todos} setTodos={setTodos} />
-        <AddAnotherList setTodos={setTodos} />
+        {/* <InterfaceCard todos={todos} setTodos={setTodos} /> */}
+        <AddAnotherList getListInfo={getListInfo} />
         </div>
     </div>
   );

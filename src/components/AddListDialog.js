@@ -1,38 +1,31 @@
 import React,{useState, useRef} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
-export default ({setTodos,setAddAList})=>{
+export default ({getListInfo,setAddAList})=>{
     const [listTitle, setListTitle]=useState("")
 
-    const handleChange = e => {
-        setListTitle(e.target.value);
-      };
-
-  
-
     const AddList=(e)=>{
- 
-         listTitle===""?setAddAList(true): setTodos({...listTitle,id:uuidv4()})
-         
-        //  setAddAList(false)
+        e.preventDefault()
+        listTitle===""?setAddAList(true): getListInfo({...listTitle,id:uuidv4()})
+        setAddAList(false)
  
     }
     const CancelList=()=>{
-        // setAddAList(false)
+       setAddAList(false)
     }
+
     const inputRef=useRef();
+
+    
     return(
         <div className="addListDialog"> 
             <form onSubmit={e=>AddList(e)} >
             <input
-                
                 ref={inputRef}
                 type="text"
-                value={listTitle}
                 name="listTitle"
                 placeholder="Enter list title..."
-                onFocus
-                onChange={e => handleChange(e)}
+                onChange={e=>setListTitle({...listTitle,listName:e.target.value})}
                 onKeyPress={e=>{
                     if(e.key==="Enter"){AddList(e);inputRef.current.blur()}}}
             />

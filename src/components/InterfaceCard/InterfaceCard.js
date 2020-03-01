@@ -15,7 +15,7 @@ export default ({todos, setTodos})=>{
     return item.map(i=> <Item key={i.id} cardName={i.cardName} id={i.id}/>) 
   }
 
-console.log(item)
+
   return(
     <div className="interfaceCard">
         <Title
