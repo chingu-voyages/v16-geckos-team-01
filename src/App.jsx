@@ -57,6 +57,20 @@ export default () => {
     />
     );
     console.log(todos,"ok")
+    
+   
+    const handleTitleChange=(newTitle, passedId)=>{
+       return todos.map(todo=>{
+         if(todo.id===passedId){
+          //  console.log("todo.id: ", todo.id, " passedId: ", passedId, " newTitle: ", newTitle)
+           setTodos({...todo, listName:newTitle})
+         
+          }else{
+            return todo
+          }
+       })
+    }
+   
   return (
     <div className="app">
       <div className="screen" style={screenStyle} />
@@ -71,7 +85,11 @@ export default () => {
           removeMember={handleRemoveMember}
         />
         <div className="body">
-        {/* <InterfaceCard todos={todos} setTodos={setTodos} /> */}
+          {todos.map(t=>{
+         
+           return <InterfaceCard todos={t.listName} titleId={t.id} handleTitleChange={handleTitleChange} />
+          })}
+        
         <AddAnotherList getListInfo={getListInfo} />
         </div>
     </div>

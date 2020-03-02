@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 
 
-export default ({ todos, setTodos }) => {
+export default ({ todos, handleTitleChange,titleId }) => {
   const [title, setTitle] = useState(todos);
  
   const handleChange = e => {
@@ -9,7 +9,7 @@ export default ({ todos, setTodos }) => {
   };
 
   const handleSubmit =()=> {
-    setTodos(title);
+    handleTitleChange(title, titleId);
   };
 
   const inputRef=useRef();
@@ -31,6 +31,6 @@ export default ({ todos, setTodos }) => {
         <button><i className="fas fa-ellipsis-h fa-sm"></i></button>
     </div>
   );
-
+   console.log(todos)
   return <div>{result}</div>;
 };
