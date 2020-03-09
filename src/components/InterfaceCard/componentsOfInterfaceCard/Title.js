@@ -9,9 +9,9 @@ export default ({ todos, handleTitleChange,titleId }) => {
     setTitle(e.target.value);
   };
 
-  const handleSubmit =()=> {
-    handleTitleChange(title, titleId);
-  };
+  // const handleSubmit =()=> {
+  //   handleTitleChange(title, titleId);
+  // };
   
   const handleClicked=()=>{
       setIsEllipsisClicked(!isEllipsisClicked)
@@ -27,10 +27,10 @@ export default ({ todos, handleTitleChange,titleId }) => {
           value={title}
           name="title"
           onFocus={e => e.target.select()}
-          onBlur={handleSubmit()}
+          onBlur={()=>handleTitleChange(title,titleId)}
           onChange={e => handleChange(e)}
           onKeyPress={e=>{
-            if(e.key==="Enter"){handleSubmit(e);inputRef.current.blur()}}}
+            if(e.key==="Enter"){handleTitleChange(title,titleId);inputRef.current.blur()}}}
         />
         <button onClick={handleClicked}><i className="fas fa-ellipsis-h fa-sm"></i></button>
         {isEllipsisClicked&&<ListActions isEllipsisClicked={isEllipsisClicked}  setIsEllipsisClicked={setIsEllipsisClicked} />} 

@@ -60,15 +60,24 @@ export default () => {
     
    
     const handleTitleChange=(newTitle, passedId)=>{
-       return todos.map(todo=>{
-         if(todo.id===passedId){
-           console.log("todo.id: ", todo.id, " passedId: ", passedId, " newTitle: ", newTitle)
-          //  setTodos({...todo, listName:newTitle})
-         
-          }else{
-            return todo
-          }
+       const newTodos=[...todos]
+       newTodos.forEach(todo=>{
+        if(todo.id===passedId){
+          todo.listName=newTitle;
+        }
        })
+
+       setTodos(newTodos)
+
+      //  return todos.map(todo=>{
+      //    if(todo.id===passedId){
+      //      console.log("todo.id: ", todo.id, " passedId: ", passedId, " newTitle: ", newTitle)
+      //     //  setTodos({...todo, listName:newTitle})
+         
+      //     }else{
+      //       return todo
+      //     }
+      //  })
     }
    
   return (
