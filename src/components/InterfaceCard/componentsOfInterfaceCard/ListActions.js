@@ -9,7 +9,9 @@ export default ({ isEllipsisClicked, setIsEllipsisClicked })=>{
                 <i  onClick={()=>{setIsEllipsisClicked(!isEllipsisClicked)}} className="fas fa-times fa-xs"></i>
             <hr/>
             <ul>
-                <li>Add Card...</li>
+                <li onClick={() => {
+            setIsEllipsisClicked(false);
+          }}>Add Card...</li>
                 <li>Copy List...</li>
                 <li>Move List...</li>
                 <li>Watch</li>

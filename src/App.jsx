@@ -95,8 +95,7 @@ export default () => {
         />
         <div className="body">
           {todos.map(t=>{
-         
-           return <InterfaceCard todos={t.listName} titleId={t.id} handleTitleChange={handleTitleChange} />
+           return <InterfaceCard titleName={t.listName} titleId={t.id} handleTitleChange={handleTitleChange} />
           })}
         
         <AddAnotherList getListInfo={getListInfo} />

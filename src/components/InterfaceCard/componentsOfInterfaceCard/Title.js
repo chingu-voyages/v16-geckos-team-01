@@ -1,8 +1,8 @@
 import React, { useState, useRef } from "react";
 import ListActions from './ListActions'
 
-export default ({ todos, handleTitleChange,titleId }) => {
-  const [title, setTitle] = useState(todos);
+export default ({ titleName, handleTitleChange,titleId }) => {
+  const [title, setTitle] = useState(titleName);
   const [isEllipsisClicked, setIsEllipsisClicked ]=useState(false)
 
   const handleChange = e => {
@@ -36,6 +36,6 @@ export default ({ todos, handleTitleChange,titleId }) => {
         {isEllipsisClicked&&<ListActions isEllipsisClicked={isEllipsisClicked}  setIsEllipsisClicked={setIsEllipsisClicked} />} 
     </div>
   );
-   console.log(todos)
+   console.log(titleName)
   return <div>{result}</div>;
 };

@@ -30,7 +30,7 @@ export default ({getListInfo,setAddAList})=>{
                     if(e.key==="Enter"){AddList(e);inputRef.current.blur()}}}
             />
             <br/>
-                <button className="addBtn" >Add Card</button>
+                <button className="addBtn" >Add List</button>
                 <button className="cancelBtn" type="button" onClick={CancelList}  ><i className="fas fa-times fa-lg"></i></button>
             </form>
            
