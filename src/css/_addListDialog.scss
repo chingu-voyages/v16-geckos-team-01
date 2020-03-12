@@ -3,7 +3,7 @@
     background-color: $light-gray; 
     border-radius: 0.2rem;
     margin:0.5rem 9rem 0.5rem 0rem;
-    height:5.8rem;
+    height:5.2rem;
       input{
         margin:0.5rem;
         padding: 0.5rem 7rem 0.5rem 0.5rem;
@@ -14,10 +14,11 @@
       }
     }
     .addBtn {
+        height:1.8rem;
         border-radius: 3px;
         background: $btn-green;
         color: white;
-        padding: 10px 13px;
+        padding: 5px 13px;
         margin: 0px 0.4rem 0.4rem 0.4rem;
         &:hover{
             background: $btn-green-hover;
