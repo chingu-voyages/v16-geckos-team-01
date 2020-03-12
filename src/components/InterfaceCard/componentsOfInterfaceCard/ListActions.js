@@ -1,10 +1,28 @@
-import React from 'react'
+import React,{useRef,useEffect} from 'react'
 
 export default ({ isEllipsisClicked, setIsEllipsisClicked })=>{
      
+    //close pop-up by detecting outside clicker 
+    const DetectClickOutside=(ref)=> {
+        const handleClickOutside=(event)=> {
+          if (ref.current && !ref.current.contains(event.target)) {
+             setIsEllipsisClicked(false)
+          }
+        }
 
+    useEffect(() => {
+        // Bind the event listener
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+          // Unbind the event listener on clean up
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      });
+    }
+    const wrapperRef=useRef(null)
+    DetectClickOutside(wrapperRef)
     return(
-        <div className="listActions">
+        <div className="listActions" ref={wrapperRef}>
                 <span>ListAction </span> 
                 <i  onClick={()=>{setIsEllipsisClicked(!isEllipsisClicked)}} className="fas fa-times fa-xs"></i>
             <hr/>
@@ -12,7 +30,7 @@ export default ({ isEllipsisClicked, setIsEllipsisClicked })=>{
                 <li onClick={() => {
             setIsEllipsisClicked(false);
           }}>Add Card...</li>
-                <li>Copy List...</li>
+                <li >Copy List...</li>
                 <li>Move List...</li>
                 <li>Watch</li>
                 <hr/>
