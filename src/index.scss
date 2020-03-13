@@ -2,9 +2,13 @@
 @import "./css/prompt";
 @import "./css/headers";
 @import "./css/title";
-@import "./css/card";
+@import "./css/interfaceCard";
 @import "./css/item";
-@import "./css/addBtn";
+@import "./css/addAnotherCard";
+@import "./css/addCardDialog";
+@import "./css/addAnotherList";
+@import "./css/addListDialog";
+@import "./css/ListActions";
 
 body {
   margin: 0;
@@ -15,4 +19,9 @@ body {
 
 .app {
   height: 100vh;
+  width: auto;
+  
+}
+.body{
+  display: flex;
 }

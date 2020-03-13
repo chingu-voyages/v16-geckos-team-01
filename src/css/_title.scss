@@ -1,4 +1,6 @@
 .title{
+  display: flex;
+  position: relative;
     input{
       margin:10px 18px 0px;
       border: none;
@@ -13,10 +15,15 @@
         outline: #5E9ED6 solid 2px;
       }
     }
-    i{
-      color: #C0C0C0;
+    button{
+      color: #202020;
+      background-color: transparent;
       cursor: pointer;
-      margin-left: 2.3rem;
+      margin-top: 0.3rem;
+      margin-left: 2.0rem;
+    padding: 0.3rem;
     }
-   
+    button:hover{
+      background-color: #D8D8D8;
+    }
   }

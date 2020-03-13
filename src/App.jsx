@@ -2,12 +2,22 @@ import React, { useState } from 'react';
 import './index.scss';
 import Prompt from './components/Prompt';
 import Headers from './components/Headers';
-import Card from './components/Card/Card'
+import InterfaceCard from './components/InterfaceCard/InterfaceCard'
+import AddAnotherList from './components/AddAnotherList'
 
 export default () => {
   const [state, setState] = useState({
     members: [], name: '', title: '', hidePrompt: false,
   });
+  const [todos, setTodos] = useState([])
+   
+  const archiveList=(id)=>{
+    setTodos(todos.filter(t=>t.id!==id))
+  }
+ 
+  const getListInfo=(list)=>{
+    setTodos([...todos, list])
+  }
 
   // Add name or title
   const handleAddInfo = (e) => {
@@ -50,25 +60,41 @@ export default () => {
       promptSubmit={handlePromptSubmit}
     />
     );
+    console.log(todos,"ok")
+    
+   
+    const handleTitleChange=(newTitle, passedId)=>{
+       const newTodos=[...todos]
+       newTodos.forEach(todo=>{
+        if(todo.id===passedId){
+          todo.listName=newTitle;
+        }
+       })
 
+       setTodos(newTodos)
+ 
+    }
+   
   return (
     <div className="app">
-      {/* <div className="screen" style={{ opacity: state.hidePrompt ? '0' : '1'}} /> */}
-      {state.hidePrompt?<Card />:
-      <div>
-     
-        <Prompt
+      <div className="screen" style={screenStyle} />
+        {promptControl}
+        <Headers
+          members={state.members}
           name={state.name}
           title={state.title}
-          addName={handleAddName}
-          addTitle={handleAddTitle}
-          promptSubmit={handlePromptSubmit}
+          submitted={state.hidePrompt}
+          changeName={handleAddInfo}
+          addMember={handlePromptSubmit}
+          removeMember={handleRemoveMember}
         />
-      
-      </div>
-            
-        }
-         
+        <div className="body">
+          {todos.map(t=>{
+           return <InterfaceCard archiveList={archiveList} key={t.id} titleName={t.listName} titleId={t.id} handleTitleChange={handleTitleChange} />
+          })}
+        
+        <AddAnotherList  getListInfo={getListInfo} />
+        </div>
     </div>
   );
 };

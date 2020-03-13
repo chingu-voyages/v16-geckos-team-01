@@ -1,0 +1,46 @@
+.addCardDialog{
+ 
+    textarea{
+     border: none;
+     overflow: auto;
+     outline: none;
+     resize: none; 
+     margin: 5px 10px;
+     padding:10px;
+     
+     font-size: 1rem;
+     border-radius: 0.2rem;
+     box-shadow: 0px 1px	#C0C0C0;
+   }
+   padding-bottom: 0.2rem;
+}
+
+.addBtn {
+    border-radius: 3px;
+    background: $btn-green;
+    color: white;
+    padding: 10px 13px;
+    margin: 5px 10px;
+    &:hover{
+        background: $btn-green-hover;
+    }
+}
+
+.cancelBtn{
+    background-color: transparent;
+    color: #787878;
+    &:hover {
+        
+        color:#202020;
+    }
+}
+
+.ellipsis{
+    background-color: transparent;
+    margin-left: 6.9rem;
+    padding: 0.5rem;
+    &:hover {
+        background-color: #D8D8D8;
+        
+    }
+}
