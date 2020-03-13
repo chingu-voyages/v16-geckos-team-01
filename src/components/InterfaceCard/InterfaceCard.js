@@ -3,7 +3,7 @@ import Title from './componentsOfInterfaceCard/Title'
 import Item from './componentsOfInterfaceCard/Item'
 import AddAnotherCard from './componentsOfInterfaceCard/AddAnotherCard'
 
-export default ({titleName, handleTitleChange, titleId})=>{
+export default ({titleName, handleTitleChange, titleId,archiveList})=>{
   
   const [item, setItem]=useState([])
   
@@ -22,6 +22,7 @@ export default ({titleName, handleTitleChange, titleId})=>{
           titleName={titleName}
           titleId={titleId}
           handleTitleChange={handleTitleChange}
+          archiveList={archiveList}
         />
        
         {displayItem()} 

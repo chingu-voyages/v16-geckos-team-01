@@ -12,6 +12,8 @@ export default ({getItem,setIsAdd})=>{
     const CancelCard=()=>{
         setIsAdd(false)
     }
+
+    console.log(cardContent)
     return(
         <div className="addCardDialog"> 
             <form onSubmit={e=>AddCard(e)} >

@@ -18,8 +18,8 @@ export default ({getListInfo,setAddAList})=>{
 
     
     return(
-        <div className="addListDialog"> 
-            <form onSubmit={e=>AddList(e)} >
+        <div className="addListDialog"  > 
+            <form onSubmit={e=>AddList(e)}  >
             <input
                 ref={inputRef}
                 type="text"

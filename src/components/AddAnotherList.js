@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import AddListDialog from './AddListDialog'
-
+ 
 export default ({getListInfo})=>{
     const [addAList, setAddAList]=useState(false)
     

@@ -1,17 +1,13 @@
 import React, { useState, useRef } from "react";
 import ListActions from './ListActions'
 
-export default ({ titleName, handleTitleChange,titleId }) => {
+export default ({ titleName, handleTitleChange,titleId, archiveList }) => {
   const [title, setTitle] = useState(titleName);
   const [isEllipsisClicked, setIsEllipsisClicked ]=useState(false)
 
   const handleChange = e => {
     setTitle(e.target.value);
   };
-
-  // const handleSubmit =()=> {
-  //   handleTitleChange(title, titleId);
-  // };
   
   const handleClicked=()=>{
       setIsEllipsisClicked(!isEllipsisClicked)
@@ -33,7 +29,7 @@ export default ({ titleName, handleTitleChange,titleId }) => {
             if(e.key==="Enter"){handleTitleChange(title,titleId);inputRef.current.blur()}}}
         />
         <button onClick={handleClicked}><i className="fas fa-ellipsis-h fa-sm"></i></button>
-        {isEllipsisClicked&&<ListActions isEllipsisClicked={isEllipsisClicked}  setIsEllipsisClicked={setIsEllipsisClicked} />} 
+        {isEllipsisClicked&&<ListActions archiveList={archiveList} titleId={titleId} isEllipsisClicked={isEllipsisClicked}  setIsEllipsisClicked={setIsEllipsisClicked} />} 
     </div>
   );
    console.log(titleName)

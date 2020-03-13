@@ -10,7 +10,11 @@ export default () => {
     members: [], name: '', title: '', hidePrompt: false,
   });
   const [todos, setTodos] = useState([])
-  
+   
+  const archiveList=(id)=>{
+    setTodos(todos.filter(t=>t.id!==id))
+  }
+ 
   const getListInfo=(list)=>{
     setTodos([...todos, list])
   }
@@ -68,16 +72,7 @@ export default () => {
        })
 
        setTodos(newTodos)
-
-      //  return todos.map(todo=>{
-      //    if(todo.id===passedId){
-      //      console.log("todo.id: ", todo.id, " passedId: ", passedId, " newTitle: ", newTitle)
-      //     //  setTodos({...todo, listName:newTitle})
-         
-      //     }else{
-      //       return todo
-      //     }
-      //  })
+ 
     }
    
   return (
@@ -95,10 +90,10 @@ export default () => {
         />
         <div className="body">
           {todos.map(t=>{
-           return <InterfaceCard titleName={t.listName} titleId={t.id} handleTitleChange={handleTitleChange} />
+           return <InterfaceCard archiveList={archiveList} key={t.id} titleName={t.listName} titleId={t.id} handleTitleChange={handleTitleChange} />
           })}
         
-        <AddAnotherList getListInfo={getListInfo} />
+        <AddAnotherList  getListInfo={getListInfo} />
         </div>
     </div>
   );

@@ -1,7 +1,9 @@
 import React,{useRef,useEffect} from 'react'
 
-export default ({ isEllipsisClicked, setIsEllipsisClicked })=>{
-     
+export default ({ isEllipsisClicked, setIsEllipsisClicked,titleId,archiveList})=>{
+    
+ 
+
     //close pop-up by detecting outside clicker 
     const DetectClickOutside=(ref)=> {
         const handleClickOutside=(event)=> {
@@ -39,7 +41,7 @@ export default ({ isEllipsisClicked, setIsEllipsisClicked })=>{
                 <li>Move All Cards in This List...</li>
                 <li>Archive All Cards in This List...</li>
                 <hr/>
-                <li>Archive This List</li>
+                <li onClick={()=>archiveList(titleId)}>Archive This List</li>
             </ul>
             
         </div>
