@@ -2,13 +2,12 @@
 .addListDialog{
     background-color: $light-gray; 
     border-radius: 0.2rem;
-    margin:0.5rem 9rem 0.5rem 0rem;
+    margin:0.5rem 0rem 0.5rem 0.5rem;
     height:5.2rem;
       input{
         margin:0.5rem;
         padding: 0.5rem 7rem 0.5rem 0.5rem;
         cursor: auto;
-        
         color: $dark-text; 
         outline: #5E9ED6 solid 2px;
       }
@@ -29,7 +28,6 @@
         background-color: transparent;
         color: #787878;
         &:hover {
-            
             color:#202020;
         }
     }
