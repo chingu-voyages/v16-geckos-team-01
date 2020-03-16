@@ -12,7 +12,7 @@ export default ({titleName, handleTitleChange, titleId,archiveList})=>{
   }
 
   const displayItem=()=>{
-    return item.map(i=> <Item key={i.id} cardName={i.cardName} id={i.id}/>) 
+    return item.map(i=> <Item key={i.id} cardName={i.cardName} id={i.id} titleName={titleName}/>) 
   }
 
  console.log(titleName)

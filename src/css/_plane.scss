@@ -1,23 +1,67 @@
 .plane{
+   
     width: 38%;
     height: 85%;
     background-color: white;
-   
-    z-index: 3;
     border-radius: 0.2rem;
     border: 1px solid #DCDCDC;
     box-shadow:inset 0 -3em 3em rgba(0,0,0,0.1),0.3em 0.3em 1em rgba(0,0,0,0.3);
     position: absolute;  
     top: 5%;
     left: 32%;
-   
-    i{
+    z-index: 1;
+    .title-name{
+        text-decoration: underline dashed #808080;
+    }
+    .bold-title{
+        color: $dark-text; 
+        font-weight: bold;
+        font-size: 1em;
+        margin-left: 1rem;
+    }
+    .sub-title{
+        color: #808080; 
+        font-size: 0.8rem;
+        margin-top:0.2rem;
+        margin-left: 2.2rem;
+    }
+    .fa-times{
+        float: right;
+        padding-right: 1rem;
+        padding-top: 1rem;
         color:	#A9A9A9;
-        padding-top: 0.2rem;
-        margin-left: 5rem;
-        position: absolute;
         &:hover{
             color:black;
+        }
+    }
+
+    .window-header{
+        padding-top: 1.5rem;
+        padding-left: 1.5rem;
+       
+    }
+    .window-main-col{
+        padding-top: 1.5rem;
+        padding-left: 1.5rem;
+        display: block;
+        .descript-text{
+            margin-top: 1rem;
+            margin-left: 1.8rem;
+         
+            textarea {
+            border: none;
+            overflow: auto;
+            outline: none;
+            resize: none; 
+            width: 60%;
+            padding-top: 0.8rem;
+            padding-left: 0.8rem;
+            background-color:  $light-gray;
+            font-size: 0.8rem;
+            color: 	#505050;
+            border-radius: 0.2rem;
+             
+          }
         }
     }
 }
