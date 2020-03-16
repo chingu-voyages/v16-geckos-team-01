@@ -1,6 +1,7 @@
 .title{
   display: flex;
   position: relative;
+  justify-content: space-between;
     input{
       margin:10px 18px 0px;
       border: none;
@@ -20,8 +21,9 @@
       background-color: transparent;
       cursor: pointer;
       margin-top: 0.3rem;
-      margin-left: 2.0rem;
-    padding: 0.3rem;
+      margin-right: 1.0rem;
+     
+      padding: 0.3rem;
     }
     button:hover{
       background-color: #D8D8D8;

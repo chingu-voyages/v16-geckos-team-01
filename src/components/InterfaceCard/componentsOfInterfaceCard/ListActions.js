@@ -25,8 +25,10 @@ export default ({ isEllipsisClicked, setIsEllipsisClicked,titleId,archiveList})=
     DetectClickOutside(wrapperRef)
     return(
         <div className="listActions" ref={wrapperRef}>
+                <div className="action-header">
                 <span>ListAction </span> 
                 <i  onClick={()=>{setIsEllipsisClicked(!isEllipsisClicked)}} className="fas fa-times fa-xs"></i>
+                </div>
             <hr/>
             <ul>
                 <li onClick={() => {

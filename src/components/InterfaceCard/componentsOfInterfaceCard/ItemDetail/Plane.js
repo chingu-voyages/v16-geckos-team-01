@@ -22,7 +22,7 @@ export default ({cardName,isPop, setIsPop, titleName})=>{
     DetectClickOutside(wrapperRef)
     return(
         <div className="plane" ref={wrapperRef}>
-        <i  onClick={()=>{setIsPop(!isPop)}} className="fas fa-times fa-sm"></i>
+            <i onClick={()=>{setIsPop(!isPop)}} className="fas fa-times fa-sm"></i>
             <div className="window-header">
                 <i className="fas fa-credit-card"></i>
                 <span className="bold-title" >{cardName}</span>
