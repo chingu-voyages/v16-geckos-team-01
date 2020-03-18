@@ -1,7 +1,7 @@
 .plane{
    
     width: 38%;
-    height: 85%;
+    height: 65%;
     background-color: white;
     border-radius: 0.2rem;
     border: 1px solid #DCDCDC;
@@ -43,25 +43,117 @@
     .window-main-col{
         padding-top: 1.5rem;
         padding-left: 1.5rem;
-        display: block;
+        width: 75%;
+        float: left;
+        background-color: white;
         .descript-text{
             margin-top: 1rem;
             margin-left: 1.8rem;
-         
+            margin-bottom: 2rem;
+            margin-right: 1rem;
             textarea {
             border: none;
             overflow: auto;
             outline: none;
             resize: none; 
-            width: 60%;
+            width: 100%;
             padding-top: 0.8rem;
             padding-left: 0.8rem;
             background-color:  $light-gray;
             font-size: 0.8rem;
             color: 	#505050;
             border-radius: 0.2rem;
-             
           }
+        }
+        
+        .show-detail-btn {
+            border-radius: 3px;
+            background: $light-gray;
+            color: #505050;
+            padding: 4px 8px;
+            
+            float:right;
+            &:hover{
+                background: #E0E0E0;
+            }
+        }
+        .comment-text{
+            margin-top: 1rem;
+            margin-bottom: 2rem;
+            display: flex;
+
+            .initials {
+                margin: 0.5rem 0.5rem 0.5rem -0.5rem;
+                font-size: 0.75em;
+                padding: 5px;
+                width: 28px;
+                height: 28px;
+            }
+            textarea{
+                border: solid 1px #C8C8C8;
+                outline: none;
+                resize: none; 
+                width: 110%;
+                padding-top: 0.8rem;
+                padding-left: 0.8rem;
+                background-color:  white;
+                font-size: 0.8rem;
+                color: 	#505050;
+                border-radius: 0.2rem;
+                cursor: pointer;
+            }
+        }
+    }
+    .window-sidebar{
+        float: right;
+        width: 20%;
+        background-color: white;
+        font-size: 0.8rem;
+        color: 	#505050;
+
+        .add-to-card{
+            color: #808080; 
+            font-size: 0.8rem;
+            margin:0 0 0.5rem 0;
+        }
+
+        ul{
+            list-style-type: none;
+            margin-top: 0;
+            margin-left: 0;
+            padding-left: 0;
+            li{
+              
+                border-radius: 3px;
+                background: $light-gray;
+                color: #505050;
+                padding: 7px 10px;
+                margin-bottom: 0.5rem;
+                margin-right: 1.5rem;
+                &:hover{
+                    background: #E0E0E0;
+                }
+                i{
+                    margin-right: 0.5rem;
+                }
+            }
+            li:last-child{
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        button{
+          
+                border-radius: 3px;
+                width: 87%;
+                background: $light-gray;
+                color: #505050;
+                padding: 7px 10px;
+                margin-bottom: 1.5rem;
+                margin-right: 1.5rem;
+                &:hover{
+                    background: #E0E0E0;
+                }
         }
     }
 }

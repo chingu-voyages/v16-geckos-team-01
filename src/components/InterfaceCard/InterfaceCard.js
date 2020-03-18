@@ -3,7 +3,7 @@ import Title from './componentsOfInterfaceCard/Title'
 import Item from './componentsOfInterfaceCard/Item'
 import AddAnotherCard from './componentsOfInterfaceCard/AddAnotherCard'
 
-export default ({titleName, handleTitleChange, titleId,archiveList})=>{
+export default ({titleName, handleTitleChange, titleId,archiveList,members})=>{
   
   const [item, setItem]=useState([])
   
@@ -12,7 +12,7 @@ export default ({titleName, handleTitleChange, titleId,archiveList})=>{
   }
 
   const displayItem=()=>{
-    return item.map(i=> <Item key={i.id} cardName={i.cardName} id={i.id} titleName={titleName}/>) 
+    return item.map(i=> <Item key={i.id} cardName={i.cardName} id={i.id} titleName={titleName} members={members}/>) 
   }
 
  console.log(titleName)
