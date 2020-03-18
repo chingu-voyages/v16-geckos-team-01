@@ -49,12 +49,12 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
            
             <p className="add-to-card" >ADD TO CARD</p>
             <ul>
-                <li><i class="far fa-user"></i>Members </li>
-                <li><i class="fas fa-tag"></i> Labels </li>
-                <li><i class="far fa-check-square"></i> Checklist </li>
-                <li><i class="far fa-clock"></i> Due Date </li>
-                <li><i class="fas fa-paperclip"></i> Attachment </li>
-                <li><i class="far fa-credit-card"></i> Cover </li>
+                <li><i className="far fa-user"></i>Members </li>
+                <li><i className="fas fa-tag"></i> Labels </li>
+                <li><i className="far fa-check-square"></i> Checklist </li>
+                <li><i className="far fa-clock"></i> Due Date </li>
+                <li><i className="fas fa-paperclip"></i> Attachment </li>
+                <li><i className="far fa-credit-card"></i> Cover </li>
             </ul>
 
             <p className="add-to-card" >POWER-UPS</p>
@@ -62,12 +62,12 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
 
              <p className="add-to-card" >ACTIONS</p>
             <ul>
-                <li><i class="far fa-user"></i>Move </li>
-                <li><i class="fas fa-tag"></i> Copy </li>
-                <li><i class="far fa-check-square"></i> Make Template </li>
-                <li><i class="far fa-clock"></i> Watch </li>
-                <li><i class="fas fa-paperclip"></i> Achive </li>
-                <li><i class="far fa-credit-card"></i> Share </li>
+                <li><i className="fas fa-arrow-right"></i> Move </li>
+                <li><i className="far fa-copy"></i> Copy </li>
+                <li><i className="fab fa-centos"></i> Make Template </li>
+                <li><i className="far fa-eye"></i> Watch </li>
+                <li><i className="fas fa-archive"></i> Achive </li>
+                <li><i className="fas fa-share-alt"></i> Share </li>
             </ul>
             </div>
             
