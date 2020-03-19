@@ -95,7 +95,7 @@
                 -webkit-appearance: textarea;
                 border: solid 1px #C8C8C8;
                 color: 	#505050;
-                min-height: 28px;
+                height: 28px;
                 overflow: auto;
                 border-radius: 0.2rem;
                 background-color:  white;
@@ -108,6 +108,9 @@
                 &:empty:before{
                   content: attr(placeholder);
                   color: #ccc;
+                }
+                &:focus{
+                    min-height:50px;
                 }
             }
             

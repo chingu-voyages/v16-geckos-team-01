@@ -1,8 +1,13 @@
 import React,{useEffect,useRef} from 'react'
 
 export default ({cardName,isPop, setIsPop, titleName, members})=>{
-       //close pop-up by detecting outside clicker 
-       const DetectClickOutside=(ref)=> {
+  
+  
+    
+    
+
+     //close pop-up by detecting outside clicker 
+    const DetectClickOutside=(ref)=> {
         const handleClickOutside=(event)=> {
           if (ref.current && !ref.current.contains(event.target)) {
             setIsPop(false)
@@ -40,7 +45,19 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                 <button className="show-detail-btn">Show Details</button>
                 <div className="comment-text">
                     <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
-                    <div className="tarea" contentEditable suppressContentEditableWarning placeholder="Write a comment..."></div>
+                    <div 
+                        className="tarea" 
+                        contentEditable 
+                        suppressContentEditableWarning 
+                        placeholder="Write a comment..."
+                       
+                    >
+               
+                    <br/>
+                    <br/>
+                    <div><button>Save</button></div>
+                     
+                    </div>
                 </div>
                 
              
