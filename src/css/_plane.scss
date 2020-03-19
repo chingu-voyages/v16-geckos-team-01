@@ -89,19 +89,30 @@
                 width: 28px;
                 height: 28px;
             }
-            textarea{
+             
+            .tarea {
+                -moz-appearance: textfield-multiline;
+                -webkit-appearance: textarea;
                 border: solid 1px #C8C8C8;
-                outline: none;
-                resize: none; 
+                color: 	#505050;
+                min-height: 28px;
+                overflow: auto;
+                border-radius: 0.2rem;
+                background-color:  white;
                 width: 110%;
                 padding-top: 0.8rem;
                 padding-left: 0.8rem;
-                background-color:  white;
                 font-size: 0.8rem;
-                color: 	#505050;
-                border-radius: 0.2rem;
                 cursor: pointer;
+                outline: none;
+                &:empty:before{
+                  content: attr(placeholder);
+                  color: #ccc;
+                }
             }
+            
+
+   
         }
     }
     .window-sidebar{

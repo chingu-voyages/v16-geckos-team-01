@@ -40,16 +40,16 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                 <button className="show-detail-btn">Show Details</button>
                 <div className="comment-text">
                     <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
-                    <textarea rows = "2"  placeholder="Write a comment..."></textarea>
+                    <div className="tarea" contentEditable suppressContentEditableWarning placeholder="Write a comment..."></div>
                 </div>
                 
              
             </div>
             <div className="window-sidebar">
            
-            <p className="add-to-card" >ADD TO CARD</p>
+            <p className="add-to-card" > ADD TO CARD</p>
             <ul>
-                <li><i className="far fa-user"></i>Members </li>
+                <li><i className="far fa-user"></i> Members </li>
                 <li><i className="fas fa-tag"></i> Labels </li>
                 <li><i className="far fa-check-square"></i> Checklist </li>
                 <li><i className="far fa-clock"></i> Due Date </li>
@@ -57,10 +57,10 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                 <li><i className="far fa-credit-card"></i> Cover </li>
             </ul>
 
-            <p className="add-to-card" >POWER-UPS</p>
-            <ul><li style={{textAlign:"center"}}>Get Power-Ups</li></ul>
+            <p className="add-to-card" > POWER-UPS </p>
+            <ul><li style={{textAlign:"center"}}> Get Power-Ups</li></ul>
 
-             <p className="add-to-card" >ACTIONS</p>
+             <p className="add-to-card"> ACTIONS </p>
             <ul>
                 <li><i className="fas fa-arrow-right"></i> Move </li>
                 <li><i className="far fa-copy"></i> Copy </li>
