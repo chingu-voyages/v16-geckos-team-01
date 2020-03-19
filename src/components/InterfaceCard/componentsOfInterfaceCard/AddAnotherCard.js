@@ -5,7 +5,7 @@ export default ({getItem})=>{
     const [isAdd,setIsAdd]=useState(false)
     
     const handleAddACard=()=>{
-        setIsAdd(!isAdd)
+        setIsAdd(true)
        
     }
     return(
