@@ -47,11 +47,10 @@
         float: left;
         background-color: white;
         
-      .description-wrap{
+      .description-wrap-default{
+        margin-top: 1rem;
+        margin-left: 1.8rem;
         .descript-text{
-            margin-top: 1rem;
-            margin-left: 1.8rem;
-           
             -moz-appearance: textfield-multiline;
             -webkit-appearance: textarea;
             color: 	#505050;
@@ -64,25 +63,37 @@
                content: attr(placeholder);
                 color: #505050;
               }
-              &:focus{
+           
+           }
+         
+          }
+          .description-wrap-show{
+                color:red;
+                   &:focus{
                 height:4rem;
                 border:solid 1px #5E9ED6;
                 background-color:  white;
                 color: #808080;
               }
-           }
-           button{
-            height:1.8rem;
-            border-radius: 3px;
-            background: $btn-green;
-            color: white;
-            padding: 5px 8px;
-            margin: 0.5rem 0rem 1.8rem 1.8rem;
-            &:hover{
-                background: $btn-green-hover;
-            }
-           }
+                button{
+                    height:1.8rem;
+                    border-radius: 3px;
+                    background: $btn-green;
+                    color: white;
+                    padding: 5px 8px;
+                    margin: 0.5rem 0rem 1.8rem 0rem;
+                    &:hover{
+                        background: $btn-green-hover;
+                    }
+                   }
+
           }
+          .description-wrap-hide{
+            margin-left: 1.8rem;
+            color: 	#505050;
+            padding: 0.8rem;
+            font-size: 0.8rem;
+         }
        
         .show-detail-btn {
             border-radius: 3px;
