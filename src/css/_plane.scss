@@ -50,6 +50,7 @@
       .description-wrap-default{
         margin-top: 1rem;
         margin-left: 1.8rem;
+        margin-bottom: 2rem;
         .descript-text{
             -moz-appearance: textfield-multiline;
             -webkit-appearance: textarea;
@@ -65,23 +66,33 @@
               }
            
            }
-         
           }
           .description-wrap-show{
-                color:red;
-                   &:focus{
-                height:4rem;
-                border:solid 1px #5E9ED6;
-                background-color:  white;
-                color: #808080;
-              }
+                margin-top: 1rem;
+                margin-left: 2rem;
+                .descript-text{
+                    -moz-appearance: textfield-multiline;
+                    -webkit-appearance: textarea;
+                    color: 	#505050;
+                    height: 3rem;
+                    border-radius: 0.2rem;
+                    background-color:white;
+                    padding: 0.8rem;
+                    font-size: 0.8rem;
+                    outline: 5px auto -webkit-focus-ring-color;
+                   
+                      &:empty:before{
+                       content: attr(placeholder);
+                        color: #505050;
+                      }
+                   }
                 button{
                     height:1.8rem;
                     border-radius: 3px;
                     background: $btn-green;
                     color: white;
                     padding: 5px 8px;
-                    margin: 0.5rem 0rem 1.8rem 0rem;
+                    margin: 0.8rem 0rem 1.8rem 0rem;
                     &:hover{
                         background: $btn-green-hover;
                     }
@@ -89,10 +100,12 @@
 
           }
           .description-wrap-hide{
-            margin-left: 1.8rem;
+            margin-left: 2rem;
             color: 	#505050;
-            padding: 0.8rem;
+            padding: 0.8rem 0rem;
             font-size: 0.8rem;
+           
+           
          }
        
         .show-detail-btn {
@@ -117,7 +130,6 @@
                 width: 28px;
                 height: 28px;
                 border-radius: 2rem;
-          
             }
              
             .comment-text {
@@ -133,19 +145,12 @@
                   content: attr(placeholder);
                   color: #808080;
                 }
-                // &:focus{
-                //      height:auto;
-                // }
-              
             }
             .textarea-wrap{
                 width:95%;
                 border:solid 1px #C8C8C8;
                 height:auto;
-              
                 .save-comment {
-              
-                
                     button{
                         margin-left: 0.5rem;
                         margin-bottom: 0.5rem;
@@ -175,7 +180,7 @@
           
             }
      
-    }
+       }
     .window-sidebar{
         float: right;
         width: 20%;

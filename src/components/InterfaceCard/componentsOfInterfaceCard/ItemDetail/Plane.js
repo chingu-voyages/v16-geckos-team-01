@@ -60,6 +60,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                       className="descript-text"  
                       contentEditable 
                       suppressContentEditableWarning 
+                      spellcheck="false"
                       placeholder="Add a more detailed description" 
                       onClick={()=>handleClickDescription()}
                     >
