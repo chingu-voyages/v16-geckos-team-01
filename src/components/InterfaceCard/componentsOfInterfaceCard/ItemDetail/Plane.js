@@ -5,18 +5,26 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
   
     const [clickDescription, isClickDescription]=useState(false)
     const [descriptionClass, setDescriptionClass]=useState("default")
+    const [descriptionInput, setDescriptionInput]=useState("")
     const [clickComment,isClickComment]=useState(false)
    
+    // description logic
     const handleClickDescription=()=>{
         setDescriptionClass("show")
         isClickDescription(true)
     }
     const handleSaveDescription=()=>{
-        setDescriptionClass("hide")
-        isClickDescription(false)
+        if(descriptionInput===""){
+          setDescriptionClass("default")
+          isClickDescription(false)
+        }else{
+          setDescriptionClass("hide")
+          isClickDescription(false)
+        }
     }
-
- 
+    
+    
+    
   
      //close pop-up by detecting outside clicker 
     const DetectClickOutside=(ref)=> {
@@ -40,11 +48,12 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     DetectClickOutside(wrapperRef)
 
     console.log("descriptionClass: ",descriptionClass)
-     console.log("clickDescription: ", clickDescription)
+    console.log("clickDescription: ", clickDescription)
+    console.log("description input: ", descriptionInput)
      
     return(
         <div className="plane" ref={wrapperRef}>
-            <i onClick={()=>{setIsPop(false)}} className="fas fa-times fa-sm"></i>
+            <i onClick={()=>{setIsPop(false)}} className="closePlane fas fa-times fa-sm"></i>
 
             <div className="window-header">
                 <i className="fas fa-credit-card"></i>
@@ -64,9 +73,15 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                       spellCheck="false"
                       placeholder="Add a more detailed description" 
                       onClick={()=>handleClickDescription()}
+                      onInput={e => setDescriptionInput(e.currentTarget.innerText)}
                     >
                     </div>
-                    {clickDescription===true&&<button onClick={()=>handleSaveDescription()} >Save</button> }
+                    {clickDescription===true&&
+                    <div> 
+                        <button onClick={()=>handleSaveDescription()} >Save</button>
+                        <i onClick={()=>handleSaveDescription()} className="closeDescription fas fa-times fa-sm"></i>
+                    </div>
+                     }
                 </div>
                 <i className="fas fa-tasks"></i>
                 <span className="bold-title" >Activity</span>
