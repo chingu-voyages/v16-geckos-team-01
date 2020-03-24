@@ -47,9 +47,9 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     const wrapperRef=useRef(null)
     DetectClickOutside(wrapperRef)
 
-    console.log("descriptionClass: ",descriptionClass)
-    console.log("clickDescription: ", clickDescription)
-    console.log("description input: ", descriptionInput)
+    // console.log("descriptionClass: ",descriptionClass)
+    // console.log("clickDescription: ", clickDescription)
+    // console.log("description input: ", descriptionInput)
      
     return(
         <div className="plane" ref={wrapperRef}>
@@ -64,7 +64,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
             <div className="window-main-col">
                 <i className="fas fa-align-justify"></i>
                 <span className="bold-title" >Description</span>
-                {descriptionClass==='hide'&&<button onClick={()=>handleClickDescription()}>Edit</button>}
+                {descriptionClass==='hide'&&<button className="descriptionEditBtn" onClick={()=>handleClickDescription()}>Edit</button>}
                 <div className={ `description-wrap-${descriptionClass}`}>
                     <div 
                       className="descript-text"  

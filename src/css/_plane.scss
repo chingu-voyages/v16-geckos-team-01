@@ -19,6 +19,16 @@
         font-size: 1em;
         margin-left: 1rem;
     }
+    .descriptionEditBtn{
+        border-radius: 3px;
+        background: $light-gray;
+        color: #505050;
+        padding: 4px 8px;
+        margin-left: 0.5rem;
+        &:hover{
+            background: #E0E0E0;
+        }
+    }
     .sub-title{
         color: #808080; 
         font-size: 0.8rem;
