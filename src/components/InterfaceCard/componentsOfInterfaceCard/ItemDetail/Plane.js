@@ -55,12 +55,13 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
             <div className="window-main-col">
                 <i className="fas fa-align-justify"></i>
                 <span className="bold-title" >Description</span>
+                {descriptionClass==='hide'&&<button onClick={()=>handleClickDescription()}>Edit</button>}
                 <div className={ `description-wrap-${descriptionClass}`}>
                     <div 
                       className="descript-text"  
                       contentEditable 
                       suppressContentEditableWarning 
-                      spellcheck="false"
+                      spellCheck="false"
                       placeholder="Add a more detailed description" 
                       onClick={()=>handleClickDescription()}
                     >
