@@ -1,4 +1,8 @@
 import React,{useState,useEffect,useRef} from 'react'
+import NewActivityForm from './NewActivityForm'
+import Activity from './Activity'
+import { v4 as uuidv4 } from 'uuid';
+
 
 export default ({cardName,isPop, setIsPop, titleName, members})=>{
   
@@ -6,8 +10,16 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     const [clickDescription, isClickDescription]=useState(false)
     const [descriptionClass, setDescriptionClass]=useState("default")
     const [descriptionInput, setDescriptionInput]=useState("")
-    const [clickComment,isClickComment]=useState(false)
+    // const [clickComment,isClickComment]=useState(false)
+    const [activities,setActivities]=useState([])
    
+
+
+    const handleSaveActivity=()=>{
+        // e.preventDefault()
+        // setActivities([...activities, id:v4(), ])
+    }
+
     // description logic
     const handleClickDescription=()=>{
         setDescriptionClass("show")
@@ -22,10 +34,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
           isClickDescription(false)
         }
     }
-    
-    
-    
-  
+
      //close pop-up by detecting outside clicker 
     const DetectClickOutside=(ref)=> {
         const handleClickOutside=(event)=> {
@@ -34,12 +43,9 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
          
           }
         }
-
     useEffect(() => {
-        // Bind the event listener
         document.addEventListener("mousedown", handleClickOutside);
         return () => {
-          // Unbind the event listener on clean up
           document.removeEventListener("mousedown", handleClickOutside);
         };
       });
@@ -86,7 +92,8 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                 <i className="fas fa-tasks"></i>
                 <span className="bold-title" >Activity</span>
                 <button className="show-detail-btn">Show Details</button>
-                <div className="comment-text-area">
+                <NewActivityForm members={members}/>
+                {/* <div className="comment-text-area">
                     <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
                     <div className="textarea-wrap" onClick={()=>isClickComment(true)}  >
                         <div 
@@ -94,6 +101,8 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                             contentEditable 
                             suppressContentEditableWarning 
                             placeholder="Write a comment..."
+                            name="task"
+                            onInput={e => setActivity({...form, task: e.currentTarget.innerText})}
                         >
                         </div>
                          {clickComment===true&& 
@@ -108,7 +117,8 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                             </div>
                          }
                     </div>
-                </div>    
+                </div>  */}
+                <Activity />
             </div>
 
 
