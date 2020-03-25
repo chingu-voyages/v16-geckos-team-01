@@ -9,14 +9,16 @@ export default ({members, create})=>{
     console.log("form: ", form)
 
     const handleSave=(e)=>{
-       
+       e.stopPropagation()
        create({...form, id:uuidv4(), completed:false })
        setForm({task: ''})
+       isClickComment(false)
        divRef.current.textContent=""
+       
     }
 
     const divRef=useRef(null)
-
+    console.log(clickComment)
     return(
         <div className="new-activity-form">
         <div className="comment-text-area">
