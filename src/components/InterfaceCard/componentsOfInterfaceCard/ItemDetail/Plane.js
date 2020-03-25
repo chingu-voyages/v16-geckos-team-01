@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useRef} from 'react'
 import NewActivityForm from './NewActivityForm'
 import Activity from './Activity'
-import { v4 as uuidv4 } from 'uuid';
+
 
 
 export default ({cardName,isPop, setIsPop, titleName, members})=>{
@@ -14,12 +14,10 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     const [activities,setActivities]=useState([])
    
 
-
-    const handleSaveActivity=()=>{
-        // e.preventDefault()
-        // setActivities([...activities, id:v4(), ])
+    const create = newActivity=>{
+        setActivities([...activities, newActivity])
     }
-
+  
     // description logic
     const handleClickDescription=()=>{
         setDescriptionClass("show")
@@ -56,7 +54,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     // console.log("descriptionClass: ",descriptionClass)
     // console.log("clickDescription: ", clickDescription)
     // console.log("description input: ", descriptionInput)
-     
+    console.log("activities: ",activities)
     return(
         <div className="plane" ref={wrapperRef}>
             <i onClick={()=>{setIsPop(false)}} className="closePlane fas fa-times fa-sm"></i>
@@ -92,7 +90,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                 <i className="fas fa-tasks"></i>
                 <span className="bold-title" >Activity</span>
                 <button className="show-detail-btn">Show Details</button>
-                <NewActivityForm members={members}/>
+                <NewActivityForm members={members} create={create}/>
                 {/* <div className="comment-text-area">
                     <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
                     <div className="textarea-wrap" onClick={()=>isClickComment(true)}  >
