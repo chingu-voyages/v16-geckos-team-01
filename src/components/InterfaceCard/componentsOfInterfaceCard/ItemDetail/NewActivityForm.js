@@ -10,39 +10,38 @@ export default ({members, create})=>{
 
     const handleSave=(e)=>{
        e.stopPropagation()
-       create({...form, id:uuidv4(), completed:false })
+       create({...form, id:uuidv4() })
        setForm({task: ''})
        isClickComment(false)
        divRef.current.textContent=""
-       
     }
 
     const divRef=useRef(null)
-    console.log(clickComment)
+   
     return(
         <div className="new-activity-form">
         <div className="comment-text-area">
              <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
              <div className="textarea-wrap" onClick={()=>isClickComment(true)}  >
-             <div 
-                className="comment-text" 
-                contentEditable 
-                suppressContentEditableWarning 
-                placeholder="Write a comment..."
-                ref={divRef}
-                onInput={e => setForm({...form, task: e.currentTarget.innerText})}
-             >
+                <div 
+                    className="comment-text" 
+                    contentEditable 
+                    suppressContentEditableWarning 
+                    placeholder="Write a comment..."
+                    ref={divRef}
+                    onInput={e => setForm({...form, task: e.currentTarget.innerText})}
+                >
              </div>
-             {clickComment===true&& 
-             <div className="save-comment" >
-                <button onClick={(e)=>handleSave(e)}>Save</button>
-                <div className="i-group">
-                   <i className="fas fa-paperclip"></i>
-                   <i className="fas fa-at"></i>
-                   <i className="far fa-smile"></i>
-                   <i className="fas fa-credit-card"></i>
-                 </div>
-             </div>
+                {clickComment===true&& 
+                <div className="save-comment" >
+                    <button onClick={(e)=>handleSave(e)}>Save</button>
+                    <div className="i-group">
+                    <i className="fas fa-paperclip"></i>
+                    <i className="fas fa-at"></i>
+                    <i className="far fa-smile"></i>
+                    <i className="fas fa-credit-card"></i>
+                    </div>
+                </div>
                }
             </div>
         </div> 

@@ -13,11 +13,21 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     // const [clickComment,isClickComment]=useState(false)
     const [activities,setActivities]=useState([])
    
-
+    // activity logic
     const create = newActivity=>{
         setActivities([...activities, newActivity])
     }
-  
+    
+    const update=(id, updatedActivity)=>{
+        const updatedActivities=activities.map(act=>{
+            if(act.id===id){
+                return{...act, task: updatedActivity}
+            }
+            return act
+        })
+        setActivities(updatedActivities)
+    }
+
     // description logic
     const handleClickDescription=()=>{
         setDescriptionClass("show")
@@ -55,6 +65,12 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     // console.log("clickDescription: ", clickDescription)
     // console.log("description input: ", descriptionInput)
     console.log("activities: ",activities)
+
+    const showActivity=activities.map(act=>{
+        return(
+             <Activity key={act.id} id={act.id} actName={act.task} update={update}/>
+        )
+    })
     return(
         <div className="plane" ref={wrapperRef}>
             <i onClick={()=>{setIsPop(false)}} className="closePlane fas fa-times fa-sm"></i>
@@ -116,7 +132,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                          }
                     </div>
                 </div>  */}
-                <Activity />
+                {showActivity}
             </div>
 
 
