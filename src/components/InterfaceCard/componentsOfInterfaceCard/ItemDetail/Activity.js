@@ -50,10 +50,10 @@ export default ({update,id,actName,remove,members})=>{
                  </div>
                 
         )
-    }else{
+    }else{   //`${(activity.length+1)*8}`+'px'
         result = (
-            <div>
-                <p> {activity}</p>  
+            <div className="comment-activity-set">
+                <div style={{width:`${(activity.length)*6.5}`+'px'}}> {activity}</div>  
                 <button onClick={()=>handleEdit()} >Edit</button>
                 <button onClick={() => handleRemove()} >X</button>
             </div>
