@@ -28,6 +28,10 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
         setActivities(updatedActivities)
     }
 
+    const remove = id => {
+        setActivities(activities.filter(act => act.id !== id))
+      }
+
     // description logic
     const handleClickDescription=()=>{
         setDescriptionClass("show")
@@ -63,12 +67,12 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
 
     // console.log("descriptionClass: ",descriptionClass)
     // console.log("clickDescription: ", clickDescription)
-    // console.log("description input: ", descriptionInput)
-    console.log("activities: ",activities)
+    console.log("activities: ", activities)
+    
 
     const showActivity=activities.map(act=>{
         return(
-             <Activity key={act.id} id={act.id} actName={act.task} update={update}/>
+             <Activity key={act.id} id={act.id} actName={act.task} update={update} remove={remove}/>
         )
     })
     return(
@@ -107,31 +111,6 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                 <span className="bold-title" >Activity</span>
                 <button className="show-detail-btn">Show Details</button>
                 <NewActivityForm members={members} create={create}/>
-                {/* <div className="comment-text-area">
-                    <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
-                    <div className="textarea-wrap" onClick={()=>isClickComment(true)}  >
-                        <div 
-                            className="comment-text" 
-                            contentEditable 
-                            suppressContentEditableWarning 
-                            placeholder="Write a comment..."
-                            name="task"
-                            onInput={e => setActivity({...form, task: e.currentTarget.innerText})}
-                        >
-                        </div>
-                         {clickComment===true&& 
-                             <div className="save-comment" >
-                                <button>Save</button>
-                             <div className="i-group">
-                                <i className="fas fa-paperclip"></i>
-                                <i className="fas fa-at"></i>
-                                <i className="far fa-smile"></i>
-                                <i className="fas fa-credit-card"></i>
-                              </div>
-                            </div>
-                         }
-                    </div>
-                </div>  */}
                 {showActivity}
             </div>
 

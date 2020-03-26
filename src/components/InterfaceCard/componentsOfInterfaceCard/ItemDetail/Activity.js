@@ -3,7 +3,7 @@ import React,{useState} from 'react'
  
 
 
-export default ({update,id,actName})=>{
+export default ({update,id,actName,remove})=>{
     const [activity, setActivity]=useState(actName)
     const [editClick, isEditClick]=useState(true)
     
@@ -21,7 +21,9 @@ export default ({update,id,actName})=>{
         isEditClick(!editClick)
     }
  
-   
+    const handleRemove = () => {
+        remove(id)
+      }
     let result;
     if(!editClick){
         result=(
@@ -45,7 +47,7 @@ export default ({update,id,actName})=>{
                     
                         
                         <div className="save-activity" > 
-                          <button onClick={()=>handdleUpdate()}  >Save</button>
+                          <button className={ `save-btn-${!activity?'disabled':'activated'}`} onClick={()=>handdleUpdate()} disabled={!activity}   >Save</button>
                           <div className="i-group">
                              <i className="fas fa-paperclip"></i>
                              <i className="fas fa-at"></i>
@@ -61,8 +63,8 @@ export default ({update,id,actName})=>{
         result = (
             <div>
                 <p> {activity}</p>  
-                <button onClick={()=>handleEdit()}>Edit</button>
-                <button  >X</button>
+                <button onClick={()=>handleEdit()} >Edit</button>
+                <button onClick={() => handleRemove()} >X</button>
             </div>
           )
     }

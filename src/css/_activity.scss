@@ -22,18 +22,32 @@
             border:solid 1px #C8C8C8;
             height:auto;
             .save-activity {
-                button{
+                .activity-save-btn-disabled{
                     margin-left: 0.5rem;
                     margin-bottom: 0.5rem;
                     border-radius: 3px;
                     background: $light-gray;
                     color: #C8C8C8;
                     padding: 8px 10px;
-                    font-size: 0.8rem ;
+                    font-size: 0.8rem;
+                    cursor: not-allowed;
                     &:hover{
                         background: #E0E0E0;
                     }
+                    
                   }
+                .activity-save-btn-activated{
+                    margin-left: 0.5rem;
+                    margin-bottom: 0.5rem;
+                    border-radius: 3px;
+                    background: $btn-green;
+                    color: white;
+                    padding: 8px 10px;
+                    font-size: 0.8rem ;
+                    &:hover{
+                        background: $btn-green-hover;
+                    }        
+                }
                 .i-group{
                   float: right;
                   margin-right:1rem;
