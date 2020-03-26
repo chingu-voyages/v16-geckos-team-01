@@ -53,13 +53,39 @@
                   margin-right:1rem;
                   i{
                       margin-left: 1.5rem;
-                      color: #505050;
                       padding-top: 10px;
+                      color: #505050;
                       right: 0;
                       
                   }
                 }
                 }
             }
+    }
+    .comment-title-set{
+        display: flex;
+        
+        .initials{
+            margin: 0rem 0.5rem 0.5rem -0.5rem;
+            font-size: 0.75em;
+            padding: 5px;
+            width: 28px;
+            height: 28px;
+            border-radius: 2rem;
+             
+        }
+        .bold-title{
+            color: $dark-text; 
+            font-weight: bold;
+            font-size: 0.8em;
+           
+            margin: 0.5rem 0rem 0.5rem 0rem;
+        }
+        .detail-title{
+            color: #808080; 
+            font-size: 0.8rem;
+            margin: 0.5rem 0rem 0.5rem 0.5rem;
+ 
+        }
     }
 }

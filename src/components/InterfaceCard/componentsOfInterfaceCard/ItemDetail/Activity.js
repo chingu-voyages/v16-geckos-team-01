@@ -3,7 +3,7 @@ import React,{useState} from 'react'
  
 
 
-export default ({update,id,actName,remove})=>{
+export default ({update,id,actName,remove,members})=>{
     const [activity, setActivity]=useState(actName)
     const [editClick, isEditClick]=useState(true)
     
@@ -29,15 +29,6 @@ export default ({update,id,actName,remove})=>{
         result=(
             <div className={ `description-wrap-${editClick?'default':'edit'}`}>
                     <div className="textarea-wrap" >
-                         {/* <div 
-                            className="activity-text"  
-                            contentEditable 
-                            suppressContentEditableWarning 
-                            spellCheck="false"
-                            ref={divRef}
-                            onInput={e => setActivity(e.currentTarget.innerText)}
-                         >
-                        </div> */}
                         <input 
                             className="activity-text" 
                             onChange={e=>setActivity(e.target.value)} 
@@ -71,6 +62,12 @@ export default ({update,id,actName,remove})=>{
 
     return(
       <div className="activity">
+          <div className="comment-title-set" >
+             <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
+             <span className="bold-title" >{members[0][0].toUpperCase()}</span>
+             <span className="detail-title">just now</span>
+          </div>
+       
           {result}
      </div>
     )
