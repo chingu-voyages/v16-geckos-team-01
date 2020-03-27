@@ -1,14 +1,14 @@
 .activity{
    
     .description-wrap-default{
-        margin-left: 2rem;
+        margin-left: 1.8rem;
         color: 	#505050;
-        padding: 0.8rem 0rem;
+        padding: 0.8rem;
         font-size: 0.8rem;
     }
     .description-wrap-edit{
-        margin-top: 1rem;
-        margin-left: 2rem;
+       
+        margin-left: 1.8rem;
         .activity-text{
             color: 	#505050;
             border-radius: 0.2rem;
@@ -56,19 +56,21 @@
                       padding-top: 10px;
                       color: #505050;
                       right: 0;
-                      
+                  
                   }
                 }
                 }
             }
     }
     .comment-activity-set{
+        margin-left: 1.8rem;
         div{
             color: #505050;
-            padding: 8px 8px;
-            font-size: 0.9rem;
+            padding: 0.8rem;
+            font-size: 0.8rem;
             background-color:white;
-            
+            border:solid 1px #C8C8C8;
+            border-radius: 0.2rem;
         }
     }
     .comment-title-set{
@@ -84,6 +86,7 @@
              
         }
         .bold-title{
+         
             color: $dark-text; 
             font-weight: bold;
             font-size: 0.8em;
