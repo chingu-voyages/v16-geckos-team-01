@@ -1,13 +1,14 @@
 .activity{
-   
+  
     .description-wrap-default{
         margin-left: 1.8rem;
         color: 	#505050;
         padding: 0.8rem;
         font-size: 0.8rem;
+     
     }
     .description-wrap-edit{
-       
+      
         margin-left: 1.8rem;
         .activity-text{
             color: 	#505050;
@@ -18,10 +19,25 @@
             outline: none;
            }
         .textarea-wrap{
-            width:95%;
+            max-width:100%;
             border:solid 1px #C8C8C8;
             height:auto;
+            background-color:white;
+          
+            .activity-text{
+                -webkit-box-sizing: border-box;
+                -moz-box-sizing: border-box;
+                box-sizing: border-box;
+                background-color:white;
+                border: none;
+                background-color: transparent;
+                resize: none;
+                outline: none;
+                overflow: auto;
+                width: 100%;
+            }
             .save-activity {
+                background-color: white;
                 .activity-save-btn-disabled{
                     margin-left: 0.5rem;
                     margin-bottom: 0.5rem;
@@ -64,13 +80,21 @@
     }
     .comment-activity-set{
         margin-left: 1.8rem;
-        div{
+        
+        
+       
+        p{
+         
             color: #505050;
             padding: 0.8rem;
             font-size: 0.8rem;
             background-color:white;
             border:solid 1px #C8C8C8;
             border-radius: 0.2rem;
+            word-break: break-all;
+          
+            max-width: 96%;
+           
         }
     }
     .comment-title-set{

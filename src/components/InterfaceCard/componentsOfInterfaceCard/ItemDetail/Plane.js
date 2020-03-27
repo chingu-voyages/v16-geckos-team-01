@@ -85,61 +85,62 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                 <p className="sub-title" >in list <span className="title-name">{titleName}</span></p>
             </div>
 
-            <div className="window-main-col">
-                <i className="fas fa-align-justify"></i>
-                <span className="bold-title" >Description</span>
-                {descriptionClass==='hide'&&<button className="descriptionEditBtn" onClick={()=>handleClickDescription()}>Edit</button>}
-                <div className={ `description-wrap-${descriptionClass}`}>
-                    <div 
-                      className="descript-text"  
-                      contentEditable 
-                      suppressContentEditableWarning 
-                      spellCheck="false"
-                      placeholder="Add a more detailed description" 
-                      onClick={()=>handleClickDescription()}
-                      onInput={e => setDescriptionInput(e.currentTarget.innerText)}
-                    >
+            <div className="window-body">
+                <div className="window-main-col">
+                    <i className="fas fa-align-justify"></i>
+                    <span className="bold-title" >Description</span>
+                    {descriptionClass==='hide'&&<button className="descriptionEditBtn" onClick={()=>handleClickDescription()}>Edit</button>}
+                    <div className={ `description-wrap-${descriptionClass}`}>
+                        <div 
+                        className="descript-text"  
+                        contentEditable 
+                        suppressContentEditableWarning 
+                        spellCheck="false"
+                        placeholder="Add a more detailed description" 
+                        onClick={()=>handleClickDescription()}
+                        onInput={e => setDescriptionInput(e.currentTarget.innerText)}
+                        >
+                        </div>
+                        {clickDescription===true&&
+                        <div> 
+                            <button onClick={()=>handleSaveDescription()} >Save</button>
+                            <i onClick={()=>handleSaveDescription()} className="closeDescription fas fa-times fa-sm"></i>
+                        </div>
+                        }
                     </div>
-                    {clickDescription===true&&
-                    <div> 
-                        <button onClick={()=>handleSaveDescription()} >Save</button>
-                        <i onClick={()=>handleSaveDescription()} className="closeDescription fas fa-times fa-sm"></i>
-                    </div>
-                     }
+                    <i className="fas fa-tasks"></i>
+                    <span className="bold-title" >Activity</span>
+                    <button className="show-detail-btn">Show Details</button>
+                    <NewActivityForm members={members} create={create}/>
+                    {showActivity}
                 </div>
-                <i className="fas fa-tasks"></i>
-                <span className="bold-title" >Activity</span>
-                <button className="show-detail-btn">Show Details</button>
-                <NewActivityForm members={members} create={create}/>
-                {showActivity}
-            </div>
 
 
-            <div className="window-sidebar">
-                <p className="add-to-card" > ADD TO CARD</p>
-                <ul>
-                    <li><i className="far fa-user"></i> Members </li>
-                    <li><i className="fas fa-tag"></i> Labels </li>
-                    <li><i className="far fa-check-square"></i> Checklist </li>
-                    <li><i className="far fa-clock"></i> Due Date </li>
-                    <li><i className="fas fa-paperclip"></i> Attachment </li>
-                    <li><i className="far fa-credit-card"></i> Cover </li>
-                </ul>
+                <div className="window-sidebar">
+                    <p className="add-to-card" > ADD TO CARD</p>
+                    <ul>
+                        <li><i className="far fa-user"></i> Members </li>
+                        <li><i className="fas fa-tag"></i> Labels </li>
+                        <li><i className="far fa-check-square"></i> Checklist </li>
+                        <li><i className="far fa-clock"></i> Due Date </li>
+                        <li><i className="fas fa-paperclip"></i> Attachment </li>
+                        <li><i className="far fa-credit-card"></i> Cover </li>
+                    </ul>
 
-                <p className="add-to-card" > POWER-UPS </p>
-                <ul><li style={{textAlign:"center"}}> Get Power-Ups</li></ul>
+                    <p className="add-to-card" > POWER-UPS </p>
+                    <ul><li style={{textAlign:"center"}}> Get Power-Ups</li></ul>
 
-                <p className="add-to-card"> ACTIONS </p>
-                <ul>
-                    <li><i className="fas fa-arrow-right"></i> Move </li>
-                    <li><i className="far fa-copy"></i> Copy </li>
-                    <li><i className="fab fa-centos"></i> Make Template </li>
-                    <li><i className="far fa-eye"></i> Watch </li>
-                    <li><i className="fas fa-archive"></i> Achive </li>
-                    <li><i className="fas fa-share-alt"></i> Share </li>
-                </ul>
-            </div>
-            
+                    <p className="add-to-card"> ACTIONS </p>
+                    <ul>
+                        <li><i className="fas fa-arrow-right"></i> Move </li>
+                        <li><i className="far fa-copy"></i> Copy </li>
+                        <li><i className="fab fa-centos"></i> Make Template </li>
+                        <li><i className="far fa-eye"></i> Watch </li>
+                        <li><i className="fas fa-archive"></i> Achive </li>
+                        <li><i className="fas fa-share-alt"></i> Share </li>
+                    </ul>
+                </div>
+            </div> 
         </div>
     )
 }

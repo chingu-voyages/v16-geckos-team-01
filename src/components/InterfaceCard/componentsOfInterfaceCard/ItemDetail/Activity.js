@@ -29,8 +29,10 @@ export default ({update,id,actName,remove,members})=>{
         result=(
             <div className={ `description-wrap-${editClick?'default':'edit'}`}>
                     <div className="textarea-wrap" >
-                        <input 
+                        <textarea 
                             className="activity-text" 
+                            rows="1" 
+                            max_length="50"
                             onChange={e=>setActivity(e.target.value)} 
                             value={activity} 
                             onFocus={e => e.target.select()}
@@ -53,7 +55,7 @@ export default ({update,id,actName,remove,members})=>{
     }else{   //`${(activity.length+1)*8}`+'px'
         result = (
             <div className="comment-activity-set">
-                <div style={{width:`${(activity.length)*6.5}`+'px'}}> {activity}</div>  
+                <p style={{width:`${(activity.length)*0.4}`+'rem'}}> {activity}</p>  
                 <button onClick={()=>handleEdit()} >Edit</button>
                 <button onClick={() => handleRemove()} >X</button>
             </div>
