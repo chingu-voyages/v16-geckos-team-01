@@ -25,15 +25,15 @@ export default ({update,id,actName,remove,members})=>{
     const handleRemove = () => {
         remove(id)
     }
-    const addEmoji=(emoji)=>{
+    const addEmoji=(newEmoji)=>{
         console.log("emoji: ", emoji)
-        let newEmoji=emoji.native
-        let newEmojiId=emoji.id
-        // setEmoji([...emoji,{emoji:newEmoji, id:newEmojiId}])
+         setEmoji([...emoji, {icon:newEmoji.native, id:newEmoji.id}])
+         isEmojiClick(!emojiClick)
     }
-    // let emojiSet=emoji.map(emo=>{
-    //    return <span>{emo}</span>
-    // })
+
+    let emojiSet=emoji.map(emo=>{
+       return <span className="emoji-set" key={emo.id}><span className="emoji-span" >{emo.icon}</span> <span className="num-span" >1</span></span>
+    })
     console.log(emoji)
     let result;
     if(!editClick){
@@ -68,14 +68,15 @@ export default ({update,id,actName,remove,members})=>{
             <div className="comment-activity-set">
                 <div className="div-act-display" style={{width:`${(activity.length)*0.4}`+'rem'}}> {activity}</div>  
                 <div className="function-set">
-                    {/* {emojiSet} */}
+                    {emojiSet}
                     <i onClick={()=>isEmojiClick(!emojiClick)} className="far fa-smile-wink fa-sm"></i> 
                     -
                     <button onClick={()=>handleEdit()} >Edit</button>
                     -
                     <button onClick={() => handleRemove()} >Delete</button>
-                    {emojiClick&&<div><Picker set="google" onSelect={(i)=>addEmoji(i)} /></div>}
                 </div>
+            
+                {emojiClick&&<div className="picker"><Picker  set="google" onSelect={(i)=>addEmoji(i)} /></div>}
             </div>
           )
     }

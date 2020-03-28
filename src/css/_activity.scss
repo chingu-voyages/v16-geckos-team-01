@@ -98,6 +98,28 @@
         .function-set{
             
             margin-top: 0.6rem;
+            margin-bottom: 0.6rem;
+            .emoji-set{
+                border-radius: 0.8rem;
+                padding: 0.2rem 0.3rem 0.2rem 0.3rem ;
+                background-color:white;
+                border:solid 1px #3498DB ;
+              
+                margin-right: 0.5rem;
+                .emoji-span{
+                
+                    font-size: small;
+                  
+                }
+                 
+                .num-span{
+                    color:#3498DB;
+                    font-size: small;
+                    font-weight: bold;
+                     
+                }
+            }
+         
             i{
                 color: #808080;
                 margin-right: 0.4rem;
@@ -109,7 +131,9 @@
                 background-color: transparent;
             }
         }
-       
+        .picker{
+            position: absolute;
+        }
     }
     .comment-title-set{
         display: flex;
