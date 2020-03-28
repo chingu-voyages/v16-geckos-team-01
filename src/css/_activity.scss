@@ -1,7 +1,7 @@
 .activity{
   
     .description-wrap-default{
-        margin-left: 1.8rem;
+        margin-left: 2rem;
         color: 	#505050;
         padding: 0.8rem;
         font-size: 0.8rem;
@@ -9,7 +9,8 @@
     }
     .description-wrap-edit{
       
-        margin-left: 1.8rem;
+        margin-left: 2rem;
+        margin-bottom: 1rem;
         .activity-text{
             color: 	#505050;
             border-radius: 0.2rem;
@@ -79,11 +80,10 @@
             }
     }
     .comment-activity-set{
-        margin-left: 1.8rem;
         
-        
+        margin: 0rem 0rem 1rem 2rem;
        
-        p{
+        .div-act-display{
          
             color: #505050;
             padding: 0.8rem;
@@ -92,16 +92,29 @@
             border:solid 1px #C8C8C8;
             border-radius: 0.2rem;
             word-break: break-all;
-          
             max-width: 96%;
            
         }
+        .function-set{
+            
+            margin-top: 0.6rem;
+            i{
+                color: #808080;
+                margin-right: 0.4rem;
+            }
+            button{
+                color: #808080; 
+                font-size: 0.8rem;
+                text-decoration: underline;
+                background-color: transparent;
+            }
+        }
+       
     }
     .comment-title-set{
         display: flex;
-        
         .initials{
-            margin: 0rem 0.5rem 0.5rem -0.5rem;
+            margin: 0rem 0.5rem 0rem -0.5rem;
             font-size: 0.75em;
             padding: 5px;
             width: 28px;
@@ -115,12 +128,12 @@
             font-weight: bold;
             font-size: 0.8em;
            
-            margin: 0.5rem 0rem 0.5rem 0rem;
+            margin: 0.5rem 0rem 0rem 0.3rem;
         }
         .detail-title{
             color: #808080; 
             font-size: 0.8rem;
-            margin: 0.5rem 0rem 0.5rem 0.5rem;
+            margin: 0.5rem 0rem 0rem 0.5rem;
  
         }
     }

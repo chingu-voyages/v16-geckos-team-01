@@ -1,11 +1,11 @@
 .new-activity-form{
-    
+  
     .comment-text-area{
         margin-top: 1rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         justify-content: space-between;
         display: flex;
-        
+       
         .initials {
             margin: 0.5rem 0.5rem 0.5rem -0.5rem;
             font-size: 0.75em;
@@ -20,7 +20,7 @@
             -webkit-appearance: textarea;
             color: 	#505050;
             border-radius: 0.2rem;
-            background-color:  white;
+         
             padding: 0.8rem;
             font-size: 0.8rem;
             outline: none;
@@ -35,6 +35,7 @@
             border:solid 1px #C8C8C8;
             border-radius: 0.2rem;
             height:auto;
+            background-color: white;
             .save-comment {
 
                 .i-group{

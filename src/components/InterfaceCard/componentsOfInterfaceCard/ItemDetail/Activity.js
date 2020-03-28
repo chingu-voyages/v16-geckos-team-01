@@ -55,9 +55,14 @@ export default ({update,id,actName,remove,members})=>{
     }else{   //`${(activity.length+1)*8}`+'px'
         result = (
             <div className="comment-activity-set">
-                <p style={{width:`${(activity.length)*0.4}`+'rem'}}> {activity}</p>  
-                <button onClick={()=>handleEdit()} >Edit</button>
-                <button onClick={() => handleRemove()} >X</button>
+                <div className="div-act-display" style={{width:`${(activity.length)*0.4}`+'rem'}}> {activity}</div>  
+                <div className="function-set">
+                    <i className="far fa-smile-wink fa-sm"></i> 
+                    -
+                    <button onClick={()=>handleEdit()} >Edit</button>
+                    -
+                    <button onClick={() => handleRemove()} >Delete</button>
+                </div>
             </div>
           )
     }
