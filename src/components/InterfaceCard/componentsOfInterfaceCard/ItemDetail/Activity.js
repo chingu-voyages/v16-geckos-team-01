@@ -1,12 +1,13 @@
 import React,{useState} from 'react'
-
- 
+import {Picker} from 'emoji-mart'
+import 'emoji-mart/css/emoji-mart.css'
 
 
 export default ({update,id,actName,remove,members})=>{
     const [activity, setActivity]=useState(actName)
     const [editClick, isEditClick]=useState(true)
-    
+    const [emojiClick, isEmojiClick]=useState(false)
+    const [emoji, setEmoji]=useState([])
     // const handleSaveComment=(e)=>{
     //     e.stopPropagation()
         
@@ -23,7 +24,17 @@ export default ({update,id,actName,remove,members})=>{
  
     const handleRemove = () => {
         remove(id)
-      }
+    }
+    const addEmoji=(emoji)=>{
+        console.log("emoji: ", emoji)
+        let newEmoji=emoji.native
+        let newEmojiId=emoji.id
+        // setEmoji([...emoji,{emoji:newEmoji, id:newEmojiId}])
+    }
+    // let emojiSet=emoji.map(emo=>{
+    //    return <span>{emo}</span>
+    // })
+    console.log(emoji)
     let result;
     if(!editClick){
         result=(
@@ -57,11 +68,13 @@ export default ({update,id,actName,remove,members})=>{
             <div className="comment-activity-set">
                 <div className="div-act-display" style={{width:`${(activity.length)*0.4}`+'rem'}}> {activity}</div>  
                 <div className="function-set">
-                    <i className="far fa-smile-wink fa-sm"></i> 
+                    {/* {emojiSet} */}
+                    <i onClick={()=>isEmojiClick(!emojiClick)} className="far fa-smile-wink fa-sm"></i> 
                     -
                     <button onClick={()=>handleEdit()} >Edit</button>
                     -
                     <button onClick={() => handleRemove()} >Delete</button>
+                    {emojiClick&&<div><Picker set="google" onSelect={(i)=>addEmoji(i)} /></div>}
                 </div>
             </div>
           )

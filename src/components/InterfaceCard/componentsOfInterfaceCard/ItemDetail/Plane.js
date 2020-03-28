@@ -15,6 +15,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
    
     // activity logic
     const create = newActivity=>{
+        console.log("newactivitey::::  ", newActivity)
         setActivities([...activities, newActivity])
     }
     
