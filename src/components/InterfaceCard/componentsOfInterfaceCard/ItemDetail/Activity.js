@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState, useEffect, useRef} from 'react'
 import {Picker} from 'emoji-mart'
 import 'emoji-mart/css/emoji-mart.css'
 
@@ -8,11 +8,28 @@ export default ({update,id,actName,remove,members})=>{
     const [editClick, isEditClick]=useState(true)
     const [emojiClick, isEmojiClick]=useState(false)
     const [emoji, setEmoji]=useState([])
-    // const handleSaveComment=(e)=>{
-    //     e.stopPropagation()
-        
-    // }
  
+     //close pop-up by detecting outside clicker 
+     const DetectClickOutside=(ref)=> {
+        const handleClickOutside=(event)=> {
+          if (ref.current && !ref.current.contains(event.target)) {
+             isEmojiClick(false)
+          }
+        }
+
+    useEffect(() => {
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+          document.removeEventListener("mousedown", handleClickOutside);
+        };
+      });
+    }
+
+    const wrapperRef=useRef(null)
+    DetectClickOutside(wrapperRef)
+
+
+    // activity logic 
     const handdleUpdate=()=>{
         update(id, activity)
         isEditClick(!editClick)
@@ -25,6 +42,8 @@ export default ({update,id,actName,remove,members})=>{
     const handleRemove = () => {
         remove(id)
     }
+    
+    // emoji logic
     const addEmoji=(newEmoji)=>{
         console.log("emoji: ", emoji)
          if(emoji.filter(i=>i.id=== newEmoji.id).length>0){
@@ -36,14 +55,15 @@ export default ({update,id,actName,remove,members})=>{
     }
 
     const removeEmoji=(id)=>{
-   
         setEmoji(emoji.filter(i=>i.id!==id))
     }
 
     let emojiSet=emoji.map(emo=>{
        return <span className="emoji-set" key={emo.id} onClick={()=>removeEmoji(emo.id)}><span className="emoji-span" >{emo.icon}</span> <span className="num-span" >1</span></span>
     })
+
     console.log(emoji)
+
     let result;
     if(!editClick){
         result=(
@@ -85,7 +105,19 @@ export default ({update,id,actName,remove,members})=>{
                     <button onClick={() => handleRemove()} >Delete</button>
                 </div>
             
-                {emojiClick&&<div className="picker"><Picker  set="google" onSelect={(i)=>addEmoji(i)} /></div>}
+                {emojiClick&&<div className="picker" ref={wrapperRef}><Picker  set="google" onSelect={(i)=>addEmoji(i)} /></div>}
+                <div className="delete-popup">
+                   
+                    <div className="delete-popup-header">
+                        <span>Delete Comment?</span>
+                        <i className="fas fa-times fa-xs"></i>
+                    </div>
+                    <hr/>
+                    <div className="delete-popup-body">
+                        <p>Deleting a comment is forcever. There is no undo.</p>
+                        <button>Delete Comment</button>
+                    </div>
+                </div>
             </div>
           )
     }

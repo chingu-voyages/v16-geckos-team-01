@@ -82,7 +82,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
 
             <div className="window-header">
                 <i className="fas fa-credit-card"></i>
-                <span className="bold-title" >{cardName}</span>
+                <span className="plane-title" >{cardName}</span>
                 <p className="sub-title" >in list <span className="title-name">{titleName}</span></p>
             </div>
 

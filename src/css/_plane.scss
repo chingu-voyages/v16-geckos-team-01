@@ -16,7 +16,7 @@
     .bold-title{
         color: $dark-text; 
         font-weight: bold;
-        font-size: 1em;
+        font-size: 1.1em;
         margin-left: 1rem;
     }
     .descriptionEditBtn{
@@ -48,7 +48,13 @@
     .window-header{
         padding-top: 1.5rem;
         padding-left: 1.5rem;
-       
+       .plane-title{
+          color: $dark-text; 
+          font-weight: bold;
+          font-size: 1.3em;
+          margin-left: 1rem;
+          letter-spacing: 0.5px; 
+       }
     }
     .window-body{
         display: flex;
@@ -70,7 +76,7 @@
                 border-radius: 0.2rem;
                 background-color:  $light-gray;
                 padding: 0.8rem;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 outline: none;
                 &:empty:before{
                 content: attr(placeholder);
@@ -90,7 +96,7 @@
                         border-radius: 0.2rem;
                         background-color:white;
                         padding: 0.8rem;
-                        font-size: 0.8rem;
+                        font-size: 0.9rem;
                         outline: 5px auto -webkit-focus-ring-color;
                     
                         &:empty:before{
@@ -125,7 +131,7 @@
                 margin-left: 2rem;
                 color: 	#505050;
                 padding: 0.8rem 0rem;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             
             
             }
@@ -147,12 +153,12 @@
         
             width: 20%;
             background-color: transparent;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: 	#505050;
 
             .add-to-card{
                 color: #808080; 
-                font-size: 0.8rem;
+                font-size: 0.9rem;
                 margin:0 0 0.5rem 0;
             }
 
