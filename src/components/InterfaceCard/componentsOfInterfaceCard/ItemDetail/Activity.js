@@ -8,12 +8,14 @@ export default ({update,id,actName,remove,members})=>{
     const [editClick, isEditClick]=useState(true)
     const [emojiClick, isEmojiClick]=useState(false)
     const [emoji, setEmoji]=useState([])
+    const [deleteComment, isDeleteComment]=useState(false)
  
      //close pop-up by detecting outside clicker 
      const DetectClickOutside=(ref)=> {
         const handleClickOutside=(event)=> {
           if (ref.current && !ref.current.contains(event.target)) {
              isEmojiClick(false)
+             isDeleteComment(false)
           }
         }
 
@@ -102,22 +104,22 @@ export default ({update,id,actName,remove,members})=>{
                     -
                     <button onClick={()=>handleEdit()} >Edit</button>
                     -
-                    <button onClick={() => handleRemove()} >Delete</button>
+                    <button onClick={()=>isDeleteComment(true)}  >Delete</button>
                 </div>
             
                 {emojiClick&&<div className="picker" ref={wrapperRef}><Picker  set="google" onSelect={(i)=>addEmoji(i)} /></div>}
-                <div className="delete-popup">
-                   
+                {deleteComment&&
+                <div className="delete-popup"  ref={wrapperRef}>
                     <div className="delete-popup-header">
                         <span>Delete Comment?</span>
-                        <i className="fas fa-times fa-xs"></i>
+                        <i className="fas fa-times fa-xs" onClick={()=>isDeleteComment(!deleteComment)}></i>
                     </div>
                     <hr/>
                     <div className="delete-popup-body">
                         <p>Deleting a comment is forcever. There is no undo.</p>
-                        <button>Delete Comment</button>
+                        <button onClick={() => handleRemove()}>Delete Comment</button>
                     </div>
-                </div>
+                 </div>} 
             </div>
           )
     }
