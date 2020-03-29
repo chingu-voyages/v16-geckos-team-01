@@ -27,12 +27,21 @@ export default ({update,id,actName,remove,members})=>{
     }
     const addEmoji=(newEmoji)=>{
         console.log("emoji: ", emoji)
+         if(emoji.filter(i=>i.id=== newEmoji.id).length>0){
+            removeEmoji(newEmoji.id)
+         }else{
          setEmoji([...emoji, {icon:newEmoji.native, id:newEmoji.id}])
          isEmojiClick(!emojiClick)
+         }
+    }
+
+    const removeEmoji=(id)=>{
+   
+        setEmoji(emoji.filter(i=>i.id!==id))
     }
 
     let emojiSet=emoji.map(emo=>{
-       return <span className="emoji-set" key={emo.id}><span className="emoji-span" >{emo.icon}</span> <span className="num-span" >1</span></span>
+       return <span className="emoji-set" key={emo.id} onClick={()=>removeEmoji(emo.id)}><span className="emoji-span" >{emo.icon}</span> <span className="num-span" >1</span></span>
     })
     console.log(emoji)
     let result;
