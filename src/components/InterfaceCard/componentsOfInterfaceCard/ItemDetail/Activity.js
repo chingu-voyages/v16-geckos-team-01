@@ -64,7 +64,7 @@ export default ({update,id,actName,remove,members})=>{
        return <span className="emoji-set" key={emo.id} onClick={()=>removeEmoji(emo.id)}>
                 <span className="emoji-span" >{emo.icon}</span>
                 <span className="num-span" >1</span>
-                <div className="tool-tip">This is a msg</div>
+                <div className="tool-tip">You reacted with:{emo.id}:</div>
               </span>
     })
 
