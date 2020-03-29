@@ -61,7 +61,11 @@ export default ({update,id,actName,remove,members})=>{
     }
 
     let emojiSet=emoji.map(emo=>{
-       return <span className="emoji-set" key={emo.id} onClick={()=>removeEmoji(emo.id)}><span className="emoji-span" >{emo.icon}</span> <span className="num-span" >1</span></span>
+       return <span className="emoji-set" key={emo.id} onClick={()=>removeEmoji(emo.id)}>
+                <span className="emoji-span" >{emo.icon}</span>
+                <span className="num-span" >1</span>
+                <div className="tool-tip">This is a msg</div>
+              </span>
     })
 
     console.log(emoji)
