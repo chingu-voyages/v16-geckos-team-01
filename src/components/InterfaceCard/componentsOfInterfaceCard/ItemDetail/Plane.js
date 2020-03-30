@@ -85,7 +85,8 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                 <span className="plane-title" >{cardName}</span>
                 <p className="sub-title" >in list <span className="title-name">{titleName}</span></p>
             </div>
-
+{/* 
+            <div className="window-body-sidebar-wraper"> */}
             <div className="window-body">
                 <div className="window-main-col">
                     <i className="fas fa-align-justify"></i>
@@ -118,8 +119,9 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
 
 
                 <div className="window-sidebar">
-                    <p className="add-to-card" > ADD TO CARD</p>
+                <p className="add-to-card" > ADD TO CARD</p>
                     <ul>
+                       
                         <li><i className="far fa-user"></i> Members </li>
                         <li><i className="fas fa-tag"></i> Labels </li>
                         <li><i className="far fa-check-square"></i> Checklist </li>
@@ -129,10 +131,14 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                     </ul>
 
                     <p className="add-to-card" > POWER-UPS </p>
-                    <ul><li style={{textAlign:"center"}}> Get Power-Ups</li></ul>
+                    <ul>
+                       
+                        <li style={{textAlign:"center"}}> Get Power-Ups</li>
+                    </ul>
 
                     <p className="add-to-card"> ACTIONS </p>
                     <ul>
+                        
                         <li><i className="fas fa-arrow-right"></i> Move </li>
                         <li><i className="far fa-copy"></i> Copy </li>
                         <li><i className="fab fa-centos"></i> Make Template </li>
@@ -142,6 +148,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                     </ul>
                 </div>
             </div> 
+            {/* </div> */}
         </div>
     )
 }
