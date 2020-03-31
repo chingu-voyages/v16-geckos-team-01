@@ -73,7 +73,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
 
     const showActivity=activities.map(act=>{
         return(
-             <Activity key={act.id} id={act.id} actName={act.task} update={update} remove={remove} members={members} />
+             <Activity key={act.id} id={act.id} actName={act.task} update={update} remove={remove} members={members} timeStamp={act.timeStamp} />
         )
     })
     return(

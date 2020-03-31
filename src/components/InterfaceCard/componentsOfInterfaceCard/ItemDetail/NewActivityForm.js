@@ -6,11 +6,18 @@ import { v4 as uuidv4 } from 'uuid';
 export default ({members, create})=>{
     const [clickComment,isClickComment]=useState(false)
     const [form, setForm]=useState({task:''})
-    console.log("form: ", form)
+   
+
+  
 
     const handleSave=(e)=>{
+         // for comparing the latest timestamp in Activity.js
+       let date=new Date().getTime();
+       localStorage.setItem("data", JSON.stringify(date))
+       let myDate=JSON.parse(localStorage.getItem("data"))
+
        e.stopPropagation()
-       create({...form, id:uuidv4() })
+       create({...form, id:uuidv4(),timeStamp:myDate })
        setForm({task: ''})
        isClickComment(false)
        divRef.current.textContent=""

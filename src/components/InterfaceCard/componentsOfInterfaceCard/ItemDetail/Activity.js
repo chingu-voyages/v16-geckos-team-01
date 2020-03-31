@@ -3,13 +3,16 @@ import {Picker} from 'emoji-mart'
 import 'emoji-mart/css/emoji-mart.css'
 
 
-export default ({update,id,actName,remove,members})=>{
+export default ({update,id,actName,remove,members,timeStamp})=>{
     const [activity, setActivity]=useState(actName)
     const [editClick, isEditClick]=useState(true)
     const [emojiClick, isEmojiClick]=useState(false)
     const [emoji, setEmoji]=useState([])
     const [deleteComment, isDeleteComment]=useState(false)
  
+ 
+  
+    
      //close pop-up by detecting outside clicker 
      const DetectClickOutside=(ref)=> {
         const handleClickOutside=(event)=> {
@@ -47,7 +50,6 @@ export default ({update,id,actName,remove,members})=>{
     
     // emoji logic
     const addEmoji=(newEmoji)=>{
-        console.log("emoji: ", emoji)
          if(emoji.filter(i=>i.id=== newEmoji.id).length>0){
             removeEmoji(newEmoji.id)
          }else{
@@ -67,8 +69,8 @@ export default ({update,id,actName,remove,members})=>{
                 <div className="tool-tip">You reacted with:{emo.id}:</div>
               </span>
     })
-
-    console.log(emoji)
+    // for comparing the old timestamp
+    let now =new Date().getTime();
 
     let result;
     if(!editClick){
@@ -133,7 +135,7 @@ export default ({update,id,actName,remove,members})=>{
           <div className="comment-title-set" >
              <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
              <span className="bold-title" >{members[0][0].toUpperCase()}</span>
-             <span className="detail-title">just now</span>
+             <span className="detail-title">created {Math.floor((now-timeStamp)/1000)===0?"just now": Math.floor((now-timeStamp)/1000)+" seconds ago"}</span>
           </div>
        
           {result}
