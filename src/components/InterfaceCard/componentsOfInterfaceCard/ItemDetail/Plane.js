@@ -10,12 +10,10 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     const [clickDescription, isClickDescription]=useState(false)
     const [descriptionClass, setDescriptionClass]=useState("default")
     const [descriptionInput, setDescriptionInput]=useState("")
-    // const [clickComment,isClickComment]=useState(false)
     const [activities,setActivities]=useState([])
    
     // activity logic
     const create = newActivity=>{
-        console.log("newactivitey::::  ", newActivity)
         setActivities([...activities, newActivity])
     }
     
@@ -70,8 +68,8 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     // console.log("clickDescription: ", clickDescription)
     console.log("activities: ", activities)
     
-
-    const showActivity=activities.map(act=>{
+    //map activities from top to end
+    const showActivity=activities.slice(0).reverse().map(act=>{
         return(
              <Activity key={act.id} id={act.id} actName={act.task} update={update} remove={remove} members={members} timeStamp={act.timeStamp} />
         )

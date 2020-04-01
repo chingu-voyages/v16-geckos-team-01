@@ -10,8 +10,6 @@ export default ({update,id,actName,remove,members,timeStamp})=>{
     const [emoji, setEmoji]=useState([])
     const [deleteComment, isDeleteComment]=useState(false)
  
- 
-  
     
      //close pop-up by detecting outside clicker 
      const DetectClickOutside=(ref)=> {
@@ -69,9 +67,27 @@ export default ({update,id,actName,remove,members,timeStamp})=>{
                 <div className="tool-tip">You reacted with:{emo.id}:</div>
               </span>
     })
+
     // for comparing the old timestamp
     let now =new Date().getTime();
+    const caculateTimestamp= ()=>{
+        
+        let updatedSeconds=Math.floor((now-timeStamp)/1000)
+        let d = Math.floor(updatedSeconds / (3600*24));
+        let h = Math.floor(updatedSeconds % (3600*24) / 3600);
+        let m = Math.floor(updatedSeconds % 3600 / 60);
+        let s = Math.floor(updatedSeconds % 60);
 
+        let dDisplay = d > 0 ? d + (d === 1 ? " day ago" : " days ago") : "";
+        let hDisplay = h > 0 ? h + (h === 1 ? " hour ago" : " hours ago") : "";
+        let mDisplay = m > 0 ? m + (m === 1 ? " minute ago" : " minutes ago") : "";
+        let sDisplay = s > 0 ? s + (s === 1 ? " second ago" : " seconds ago") : "";
+        return dDisplay|| hDisplay||mDisplay||sDisplay;
+        
+    }
+    let timestampDisplay = caculateTimestamp()
+  
+    // result logic
     let result;
     if(!editClick){
         result=(
@@ -135,7 +151,7 @@ export default ({update,id,actName,remove,members,timeStamp})=>{
           <div className="comment-title-set" >
              <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
              <span className="bold-title" >{members[0][0].toUpperCase()}</span>
-             <span className="detail-title">created {Math.floor((now-timeStamp)/1000)===0?"just now": Math.floor((now-timeStamp)/1000)+" seconds ago"}</span>
+             <span className="detail-title">{timestampDisplay===""? "just now":timestampDisplay}</span>
           </div>
        
           {result}
