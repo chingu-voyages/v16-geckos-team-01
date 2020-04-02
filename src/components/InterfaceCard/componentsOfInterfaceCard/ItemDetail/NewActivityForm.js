@@ -42,6 +42,7 @@ export default ({members, create})=>{
                 {clickComment===true&& 
                 <div className="save-comment" >
                     <button className={ `save-btn-${!form.task?'disabled':'activated'}`} onClick={(e)=>handleSave(e)} disabled={!form.task}>Save</button>
+                 
                     <div className="i-group">
                     <i className="fas fa-paperclip"></i>
                     <i className="fas fa-at"></i>

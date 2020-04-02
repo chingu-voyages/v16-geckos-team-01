@@ -63,6 +63,15 @@
                         background: $btn-green-hover;
                     }        
                 }
+                .closeDescription{
+                    margin-left: 0.8rem;
+                    padding-right: 1rem;
+                    padding-top: 1rem;
+                    color:	#A9A9A9;
+                    &:hover{
+                        color:black;
+                    }
+                }
                 .i-group{
                   float: right;
                   margin-right:1rem;

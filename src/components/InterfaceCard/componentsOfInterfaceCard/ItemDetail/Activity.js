@@ -105,6 +105,7 @@ export default ({update,id,actName,remove,members,timeStamp})=>{
                         
                         <div className="save-activity" > 
                           <button className={ `save-btn-${!activity?'disabled':'activated'}`} onClick={()=>handdleUpdate()} disabled={!activity}   >Save</button>
+                          <i onClick={()=>isEditClick(!editClick)}  className="closeDescription fas fa-times fa-sm"></i>
                           <div className="i-group">
                              <i className="fas fa-paperclip"></i>
                              <i className="fas fa-at"></i>
