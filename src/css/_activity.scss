@@ -144,12 +144,18 @@
             i{
                 color: #808080;
                 margin-right: 0.4rem;
+                &:hover{
+                    color:#000080
+                }
             }
             button{
                 color: #808080; 
                 font-size: 0.8rem;
                 text-decoration: underline;
                 background-color: transparent;
+                &:hover{
+                    color:#000080
+                }
             }
         }
         .picker{

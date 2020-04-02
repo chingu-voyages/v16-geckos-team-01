@@ -11,6 +11,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     const [descriptionClass, setDescriptionClass]=useState("default")
     const [descriptionInput, setDescriptionInput]=useState("")
     const [activities,setActivities]=useState([])
+    const [showDetails, isShowDetails]=useState(true)
    
     // activity logic
     const create = newActivity=>{
@@ -71,7 +72,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
     //map activities from top to end
     const showActivity=activities.slice(0).reverse().map(act=>{
         return(
-             <Activity key={act.id} id={act.id} actName={act.task} update={update} remove={remove} members={members} timeStamp={act.timeStamp} />
+             <Activity key={act.id} id={act.id} actName={act.task} update={update} remove={remove} members={members} showDetails={showDetails} timeStamp={act.timeStamp} />
         )
     })
     return(
@@ -110,7 +111,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
                     </div>
                     <i className="fas fa-tasks"></i>
                     <span className="bold-title" >Activity</span>
-                    <button className="show-detail-btn">Show Details</button>
+                    <button onClick={()=>isShowDetails(!showDetails)} className="show-detail-btn">{showDetails? "Hide Details":"Show Details"}</button>
                     <NewActivityForm members={members} create={create}/>
                     {showActivity}
                 </div>

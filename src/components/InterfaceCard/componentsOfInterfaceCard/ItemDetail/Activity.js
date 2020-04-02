@@ -3,13 +3,13 @@ import {Picker} from 'emoji-mart'
 import 'emoji-mart/css/emoji-mart.css'
 
 
-export default ({update,id,actName,remove,members,timeStamp})=>{
+export default ({update,id,actName,remove,members,showDetails,timeStamp})=>{
     const [activity, setActivity]=useState(actName)
     const [editClick, isEditClick]=useState(true)
     const [emojiClick, isEmojiClick]=useState(false)
     const [emoji, setEmoji]=useState([])
     const [deleteComment, isDeleteComment]=useState(false)
- 
+  
     
      //close pop-up by detecting outside clicker 
      const DetectClickOutside=(ref)=> {
@@ -152,7 +152,8 @@ export default ({update,id,actName,remove,members,timeStamp})=>{
           <div className="comment-title-set" >
              <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
              <span className="bold-title" >{members[0][0].toUpperCase()}</span>
-             <span className="detail-title">{timestampDisplay===""? "just now":timestampDisplay}</span>
+
+           {showDetails&&<span className="detail-title">{timestampDisplay===""? "just now":timestampDisplay}</span>}
           </div>
        
           {result}
