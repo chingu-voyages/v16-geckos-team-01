@@ -87,7 +87,7 @@
             }
     }
     .comment-activity-set{
-        
+     
         margin: 0rem 0rem 1.5rem 2rem;
        
         .div-act-display{
@@ -228,7 +228,15 @@
             color: #808080; 
             font-size: 0.8rem;
             margin: 0.5rem 0rem 0rem 0.5rem;
- 
+            &:hover{
+                color:#000080;
+                text-decoration: underline;
+            }
+            &:active{ // tempt 
+                background: red;
+                border-left:5px solid green;
+                padding: 15px 30px 15px 25px;
+            }
         }
     }
 }
