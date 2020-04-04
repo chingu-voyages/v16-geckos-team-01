@@ -9,7 +9,7 @@ export default ({update,id,actName,remove,members,showDetails,timeStamp})=>{
     const [emojiClick, isEmojiClick]=useState(false)
     const [emoji, setEmoji]=useState([])
     const [deleteComment, isDeleteComment]=useState(false)
-  
+    const [backgroundHighlight, isBackgroundHighlight]=useState(false)
     
      //close pop-up by detecting outside clicker 
      const DetectClickOutside=(ref)=> {
@@ -148,12 +148,12 @@ export default ({update,id,actName,remove,members,showDetails,timeStamp})=>{
     }
 
     return(
-      <div className="activity">
+      <div className={`activity-${backgroundHighlight?"with-background":"without-background"}`}>
           <div className="comment-title-set" >
              <button className="initials" type="button">{members[0][0].toUpperCase()}</button>
              <span className="bold-title" >{members[0][0].toUpperCase()}</span>
 
-           {showDetails&&<span className="detail-title">{timestampDisplay===""? "just now":timestampDisplay}</span>}
+           {showDetails&&<span onClick={()=>isBackgroundHighlight(!backgroundHighlight)} className="detail-title">{timestampDisplay===""? "just now":timestampDisplay}</span>}
           </div>
        
           {result}
