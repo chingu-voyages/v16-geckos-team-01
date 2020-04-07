@@ -10,6 +10,10 @@ export default () => {
     members: [], name: '', title: '', hidePrompt: false,
   });
   const [todos, setTodos] = useState([])
+
+  const [item, setItem]=useState([])    // moved to here and passed it down
+
+
    
   const archiveList=(id)=>{
     setTodos(todos.filter(t=>t.id!==id))
@@ -96,7 +100,11 @@ export default () => {
                       titleName={t.listName} 
                       titleId={t.id} 
                       handleTitleChange={handleTitleChange} 
-                      members={state.members} />
+                      members={state.members} 
+                      item={item}
+                      setItem={setItem}
+                      />
+                    
           })}
         
         <AddAnotherList  getListInfo={getListInfo} />

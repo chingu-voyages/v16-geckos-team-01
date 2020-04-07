@@ -3,9 +3,9 @@ import Title from './componentsOfInterfaceCard/Title'
 import Item from './componentsOfInterfaceCard/Item'
 import AddAnotherCard from './componentsOfInterfaceCard/AddAnotherCard'
 
-export default ({titleName, handleTitleChange, titleId,archiveList,members})=>{
+export default ({titleName, handleTitleChange, titleId,archiveList,members,item, setItem})=>{
   
-  const [item, setItem]=useState([])
+  // const [item, setItem]=useState([])  // moved to App.js
   
   const getItem=(it)=>{
       setItem([...item,it])     
