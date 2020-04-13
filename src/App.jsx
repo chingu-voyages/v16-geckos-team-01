@@ -11,7 +11,7 @@ export default () => {
   });
   const [todos, setTodos] = useState([])
 
-  const [item, setItem]=useState([])    // moved to here and passed it down
+ 
 
 
    
@@ -21,7 +21,7 @@ export default () => {
  
   const getListInfo=(list)=>{
     setTodos([...todos, list])
-  }
+  } 
 
   // Add name or title
   const handleAddInfo = (e) => {
@@ -101,8 +101,6 @@ export default () => {
                       titleId={t.id} 
                       handleTitleChange={handleTitleChange} 
                       members={state.members} 
-                      item={item}
-                      setItem={setItem}
                       />
                     
           })}
