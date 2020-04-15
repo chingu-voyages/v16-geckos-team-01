@@ -147,6 +147,7 @@ export default ({update,id,actName,remove,members,showDetails,timeStamp})=>{
           )
     }
 
+    console.log("activity: ", activity)
     return(
       <div className={`activity-${backgroundHighlight?"with-background":"without-background"}`}>
           <div className="comment-title-set" >

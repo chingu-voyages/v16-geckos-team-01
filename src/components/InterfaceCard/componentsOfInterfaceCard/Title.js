@@ -32,6 +32,6 @@ export default ({ titleName, handleTitleChange,titleId, archiveList }) => {
         {isEllipsisClicked&&<ListActions archiveList={archiveList} titleId={titleId} isEllipsisClicked={isEllipsisClicked}  setIsEllipsisClicked={setIsEllipsisClicked} />} 
     </div>
   );
-   console.log(titleName)
+   console.log("title: ", title)
   return <div>{result}</div>;
 };

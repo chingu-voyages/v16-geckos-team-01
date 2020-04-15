@@ -12,8 +12,6 @@ export default () => {
   const [todos, setTodos] = useState([])
 
  
-
-
    
   const archiveList=(id)=>{
     setTodos(todos.filter(t=>t.id!==id))
@@ -64,7 +62,7 @@ export default () => {
       promptSubmit={handlePromptSubmit}
     />
     );
-    console.log(todos,"ok")
+    
     
    
     const handleTitleChange=(newTitle, passedId)=>{
@@ -78,7 +76,7 @@ export default () => {
        setTodos(newTodos)
  
     }
-   
+   console.log("todos: ",todos)
   return (
     <div className="app">
       <div className="screen" style={screenStyle} />

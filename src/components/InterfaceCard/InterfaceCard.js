@@ -15,7 +15,7 @@ export default ({titleName, handleTitleChange, titleId,archiveList,members})=>{
     return item.map(i=> <Item key={i.id} cardName={i.cardName} id={i.id} titleName={titleName} members={members}/>) 
   }
 
- console.log(titleName)
+ console.log("item: ", item)
   return(
     <div className="interfaceCard">
         <Title
