@@ -6,9 +6,15 @@ import InterfaceCard from './components/InterfaceCard/InterfaceCard'
 import AddAnotherList from './components/AddAnotherList'
 
 export default () => {
-  const [state, setState] = useState({
-    members: [], name: '', title: '', hidePrompt: false,
-  });
+  const [state, setState] = useState([
+    {
+      dataName:'loginData', members: [], name: '', title: '', hidePrompt: false,
+    }
+
+]);
+
+  
+
   const [todos, setTodos] = useState([])
 
  
@@ -24,40 +30,40 @@ export default () => {
   // Add name or title
   const handleAddInfo = (e) => {
     const input = e.target.value;
-    setState({
-      ...state, [e.target.name]: !input.trim() ? '' : input,
-    });
+    setState([{
+      ...state[0], [e.target.name]: !input.trim() ? '' : input,
+    }]);
   };
 
   // Submit form to add members
   const handlePromptSubmit = (e) => {
-    const { members, name } = state;
+    const { members, name } = state[0];
     e.preventDefault();
-    setState({
-      ...state,
+    setState([{
+      ...state[0],
       members: [...members, name],
       name: '',
       hidePrompt: true,
-    });
+    }]);
   };
 
   // Remove a member from the board
   const handleRemoveMember = (e) => {
-    const updated = [...state.members];
+    const updated = [...state[0].members];
     const toRemove = updated.indexOf(e.target.name);
-    setState({
-      ...state,
+    setState([{
+      ...state[0],
       members: updated.slice(0, toRemove).concat(updated.slice(toRemove + 1, updated.length)),
-    });
+    }]);
   };
 
-  const screenStyle = { opacity: state.hidePrompt ? '0' : '1', zIndex: state.hidePrompt ? '-1' : '1' };
+  const screenStyle = { opacity: state[0].hidePrompt ? '0' : '1', zIndex: state[0].hidePrompt ? '-1' : '1' };
 
-  const promptControl = !state.hidePrompt
+  const promptControl = !state[0].hidePrompt
     && (
     <Prompt
-      name={state.name}
-      title={state.title}
+      name={state[0].name}
+      title={state[0].title}
       addInfo={handleAddInfo}
       promptSubmit={handlePromptSubmit}
     />
@@ -76,16 +82,17 @@ export default () => {
        setTodos(newTodos)
  
     }
+    console.log(state)
    console.log("todos: ",todos)
   return (
     <div className="app">
       <div className="screen" style={screenStyle} />
         {promptControl}
         <Headers
-          members={state.members}
-          name={state.name}
-          title={state.title}
-          submitted={state.hidePrompt}
+          members={state[0].members}
+          name={state[0].name}
+          title={state[0].title}
+          submitted={state[0].hidePrompt}
           changeName={handleAddInfo}
           addMember={handlePromptSubmit}
           removeMember={handleRemoveMember}
@@ -98,7 +105,7 @@ export default () => {
                       titleName={t.listName} 
                       titleId={t.id} 
                       handleTitleChange={handleTitleChange} 
-                      members={state.members} 
+                      members={state[0].members} 
                       />
                     
           })}
