@@ -171,7 +171,7 @@ export default () => {
               archiveList={archiveList}
               key={card.id}
               card={card}
-              handleTitleChange={addNewCard}
+              handleTitleChange={updateCard}
               members={state[0].members}
               controls={controls}
             />

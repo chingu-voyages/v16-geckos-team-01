@@ -35,7 +35,7 @@ export default ({
     <div className="interfaceCard">
       <Title
         titleName={card.cardTitle}
-        titleId={card.id}
+        cardId={card.id}
         handleTitleChange={handleTitleChange}
         archiveList={archiveList}
       />
