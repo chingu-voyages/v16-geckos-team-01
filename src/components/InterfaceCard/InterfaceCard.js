@@ -4,6 +4,7 @@ import Item from "./componentsOfInterfaceCard/Item";
 import AddAnotherCard from "./componentsOfInterfaceCard/AddAnotherCard";
 
 export default ({
+  controls,
   card,
   titleName,
   handleTitleChange,
@@ -18,12 +19,12 @@ export default ({
   };
 
   const displayItem = () => {
-    return item.map((i) => (
+    return card.todos.map((todo) => (
       <Item
-        key={i.id}
-        cardName={i.cardName}
-        id={i.id}
-        titleName={titleName}
+        key={todo.id}
+        cardName={todo.todoTitle}
+        id={todo.id}
+        titleName={card.todoTitle}
         members={members}
       />
     ));
@@ -41,7 +42,11 @@ export default ({
 
       {displayItem()}
 
-      <AddAnotherCard getItem={getItem} />
+      <AddAnotherCard
+        getItem={getItem}
+        addNewTodo={controls.addNewTodo}
+        cardId={card.id}
+      />
     </div>
   );
 };
