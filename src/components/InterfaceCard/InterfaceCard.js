@@ -1,33 +1,47 @@
-import React,{useState} from 'react'
-import Title from './componentsOfInterfaceCard/Title'
-import Item from './componentsOfInterfaceCard/Item'
-import AddAnotherCard from './componentsOfInterfaceCard/AddAnotherCard'
+import React, { useState } from "react";
+import Title from "./componentsOfInterfaceCard/Title";
+import Item from "./componentsOfInterfaceCard/Item";
+import AddAnotherCard from "./componentsOfInterfaceCard/AddAnotherCard";
 
-export default ({titleName, handleTitleChange, titleId,archiveList,members})=>{
-  
-  const [item, setItem]=useState([])   
-  
-  const getItem=(it)=>{
-      setItem([...item,it])     
-  }
+export default ({
+  card,
+  titleName,
+  handleTitleChange,
+  titleId,
+  archiveList,
+  members,
+}) => {
+  const [item, setItem] = useState([]);
 
-  const displayItem=()=>{
-    return item.map(i=> <Item key={i.id} cardName={i.cardName} id={i.id} titleName={titleName} members={members}/>) 
-  }
+  const getItem = (it) => {
+    setItem([...item, it]);
+  };
 
- console.log("item: ", item)
-  return(
+  const displayItem = () => {
+    return item.map((i) => (
+      <Item
+        key={i.id}
+        cardName={i.cardName}
+        id={i.id}
+        titleName={titleName}
+        members={members}
+      />
+    ));
+  };
+
+  console.log("item: ", item);
+  return (
     <div className="interfaceCard">
-        <Title
-          titleName={titleName}
-          titleId={titleId}
-          handleTitleChange={handleTitleChange}
-          archiveList={archiveList}
-        />
-       
-        {displayItem()} 
-        
-         <AddAnotherCard getItem={getItem}/>
-      </div>
-  )
-}
+      <Title
+        titleName={card.cardTitle}
+        titleId={card.id}
+        handleTitleChange={handleTitleChange}
+        archiveList={archiveList}
+      />
+
+      {displayItem()}
+
+      <AddAnotherCard getItem={getItem} />
+    </div>
+  );
+};
