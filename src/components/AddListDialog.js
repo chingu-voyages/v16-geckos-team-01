@@ -1,15 +1,22 @@
 import React,{useState, useRef} from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
-export default ({getListInfo,setAddAList})=>{
+export default ({addNewCard, getListInfo,setAddAList})=>{
     const [listTitle, setListTitle]=useState("")
 
-    const AddList=(e)=>{
-        e.preventDefault()
-        listTitle===""?setAddAList(true): getListInfo({...listTitle,id:uuidv4()})
-        setAddAList(false)
+    // const AddList=(e)=>{
+    //     e.preventDefault()
+    //     listTitle===""?setAddAList(true): getListInfo({...listTitle,id:uuidv4()})
+    //     setAddAList(false)
  
-    }
+    // }
+    const AddList = (e) => {
+        e.preventDefault();
+        listTitle === "" ? setAddAList(true) : addNewCard(listTitle);
+        setAddAList(false);
+      };
+
+
     const CancelList=()=>{
        setAddAList(false)
     }
@@ -25,7 +32,8 @@ export default ({getListInfo,setAddAList})=>{
                 type="text"
                 name="listTitle"
                 placeholder="Enter list title..."
-                onChange={e=>setListTitle({...listTitle,listName:e.target.value})}
+                /* onChange={e=>setListTitle({...listTitle,listName:e.target.value})} */
+                onChange={(e) => setListTitle(e.target.value)}
                 onKeyPress={e=>{
                     if(e.key==="Enter"){AddList(e);inputRef.current.blur()}}}
             />

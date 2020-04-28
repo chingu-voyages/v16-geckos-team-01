@@ -3,7 +3,7 @@ import Title from './componentsOfInterfaceCard/Title'
 import Item from './componentsOfInterfaceCard/Item'
 import AddAnotherCard from './componentsOfInterfaceCard/AddAnotherCard'
 
-export default ({titleName, handleTitleChange, titleId,archiveList,members})=>{
+export default ({controls,card,titleName, handleTitleChange, titleId,archiveList,members})=>{
   
   const [item, setItem]=useState([])   
   
@@ -12,22 +12,26 @@ export default ({titleName, handleTitleChange, titleId,archiveList,members})=>{
   }
 
   const displayItem=()=>{
-    return item.map(i=> <Item key={i.id} cardName={i.cardName} id={i.id} titleName={titleName} members={members}/>) 
+    return card.todos.map(todo=> <Item key={todo.id} cardName={todo.todoTitle} id={todo.id} titleName={card.todoTitle} members={members}/>) 
   }
 
  console.log("item: ", item)
   return(
     <div className="interfaceCard">
         <Title
-          titleName={titleName}
-          titleId={titleId}
+          titleName={card.cardTitle}
+          titleId={card.id}
           handleTitleChange={handleTitleChange}
           archiveList={archiveList}
         />
        
         {displayItem()} 
         
-         <AddAnotherCard getItem={getItem}/>
+         <AddAnotherCard 
+            getItem={getItem} 
+            addNewTodo={controls.addNewTodo} 
+            cardId={card.id}    
+         />
       </div>
   )
 }
