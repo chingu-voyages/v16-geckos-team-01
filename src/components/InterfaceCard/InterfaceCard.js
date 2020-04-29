@@ -12,15 +12,15 @@ export default ({controls,card,titleName, handleTitleChange, titleId,archiveList
   }
 
   const displayItem=()=>{
-    return card.todos.map(todo=> <Item key={todo.id} cardName={todo.todoTitle} id={todo.id} titleName={card.todoTitle} members={members}/>) 
+    return card.todos.map(todo=> <Item key={todo.id} cardName={todo.todoTitle} id={todo.id} titleName={card.cardTitle} members={members}/>) 
   }
 
- console.log("item: ", item)
+ console.log("card id: ", card.id, "card title:", card.cardTitle)
   return(
     <div className="interfaceCard">
         <Title
           titleName={card.cardTitle}
-          titleId={card.id}
+          cardId={card.id}
           handleTitleChange={handleTitleChange}
           archiveList={archiveList}
         />

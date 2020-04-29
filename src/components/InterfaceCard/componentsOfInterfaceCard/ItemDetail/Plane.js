@@ -67,7 +67,7 @@ export default ({cardName,isPop, setIsPop, titleName, members})=>{
 
     // console.log("descriptionClass: ",descriptionClass)
     // console.log("clickDescription: ", clickDescription)
-    console.log("activities: ", activities)
+    console.log("titleName: ", titleName)
     
     //map activities from top to end
     const showActivity=activities.slice(0).reverse().map(act=>{

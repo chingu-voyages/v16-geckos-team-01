@@ -12,14 +12,15 @@ export default () => {
     members: [], name: '', title: '', hidePrompt: false,
   });
 
-    // const sampleCard = [
+  // const sampleCard = [
   //   {
   //     id: 1,
   //     cardTitle: "someTitle",
   //     todos: [{ id:1, todoTitle: "someTitle" }],
   //   },
   // ];
-  const [todos, setTodos] = useState([]);
+  
+// const [todos, setTodos] = useState([]);
 const [cards, setCards] = useState([]);
 
 const addNewCard = (cardTitle) => {
@@ -38,6 +39,18 @@ const addNewTodo = (cardId, todoTitle) => {
   });
   setCards(stateCopy);
 };
+
+
+// BEING REPLACED BY UPDATECARD BELOW   
+  // const handleTitleChange=(newTitle, passedId)=>{
+  //    const newTodos=[...todos]
+  //    newTodos.forEach(todo=>{
+  //     if(todo.id===passedId){
+  //       todo.listName=newTitle;
+  //     }
+  //    })
+  //    setTodos(newTodos)
+  // }
 
 const updateCard = (cardId, newCardTitle) => {
   const stateCopy = [...cards];
@@ -66,12 +79,12 @@ const updateTodo = (cardId, todoId, newTodoTitle) => {
  
    
   const archiveList=(id)=>{
-    setTodos(todos.filter(t=>t.id!==id))
+    setCards(cards.filter(t=>t.id!==id))
   }
  
-  const getListInfo=(list)=>{
-    setTodos([...todos, list])
-  } 
+  // const getListInfo=(list)=>{
+  //   setTodos([...todos, list])
+  // } 
 
   // Add name or title
   const handleAddInfo = (e) => {
@@ -116,17 +129,7 @@ const updateTodo = (cardId, todoId, newTodoTitle) => {
     );
     
     
-   
-    // const handleTitleChange=(newTitle, passedId)=>{
-    //    const newTodos=[...todos]
-    //    newTodos.forEach(todo=>{
-    //     if(todo.id===passedId){
-    //       todo.listName=newTitle;
-    //     }
-    //    })
 
-    //    setTodos(newTodos)
-    // }
 
     const controls = {
       addNewCard,
@@ -161,7 +164,7 @@ const updateTodo = (cardId, todoId, newTodoTitle) => {
                     
           })}
         
-        <AddAnotherList  getListInfo={getListInfo} addNewCard={controls.addNewCard} />
+        <AddAnotherList addNewCard={controls.addNewCard} />
         </div>
     </div>
   );

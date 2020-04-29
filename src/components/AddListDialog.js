@@ -1,7 +1,6 @@
 import React,{useState, useRef} from 'react'
-import { v4 as uuidv4 } from 'uuid';
 
-export default ({addNewCard, getListInfo,setAddAList})=>{
+export default ({addNewCard, setAddAList})=>{
     const [listTitle, setListTitle]=useState("")
 
     // const AddList=(e)=>{
