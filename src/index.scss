@@ -8,7 +8,10 @@
 @import "./css/addCardDialog";
 @import "./css/addAnotherList";
 @import "./css/addListDialog";
-@import "./css/ListActions";
+@import "./css/listActions";
+@import "./css/plane";
+@import "./css/activity";
+@import "./css/newActivityForm";
 
 body {
   margin: 0;
@@ -25,3 +28,4 @@ body {
 .body{
   display: flex;
 }
+

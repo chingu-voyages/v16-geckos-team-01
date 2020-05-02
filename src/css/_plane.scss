@@ -1,0 +1,242 @@
+.plane{
+   
+    width: 50rem;
+    height: auto;
+    background-color: 	#F5F5F5;
+    border-radius: 0.2rem;
+    border: 1px solid #DCDCDC;
+    // box-shadow:inset 0 -3em 3em rgba(0,0,0,0.1),0.3em 0.3em 1em rgba(0,0,0,0.3);
+    position: absolute;  
+    top: 5%;
+	left: 0;
+	right: 0;
+    margin: auto;
+     
+    z-index: 99;
+    .title-name{
+        text-decoration: underline dashed #808080;
+    }
+    .bold-title{
+        color: $dark-text; 
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-left: 1rem;
+    }
+    .descriptionEditBtn{
+        border-radius: 3px;
+        background: $light-gray;
+        color: #505050;
+        padding: 4px 8px;
+        margin-left: 0.5rem;
+        &:hover{
+            background: #E0E0E0;
+        }
+    }
+    .sub-title{
+        color: #808080; 
+        font-size: 0.8rem;
+        margin-top:0.2rem;
+        margin-left: 2.2rem;
+    }
+    .closePlane{
+        float: right;
+        padding-right: 1rem;
+        padding-top: 1rem;
+        color:	#A9A9A9;
+        &:hover{
+            color:black;
+        }
+    }
+
+    .window-header{
+        padding-top: 1.5rem;
+        padding-left: 1.5rem;
+       .plane-title{
+          color: $dark-text; 
+          font-weight: bold;
+          font-size: 1.3em;
+          margin-left: 1rem;
+          letter-spacing: 0.5px; 
+       }
+    }
+    
+      
+        .window-body{
+           display: flex;
+            .window-main-col{
+                padding-top: 1.5rem;
+                padding-left: 1.5rem;
+                width: 75%;
+                margin-right: 3%;
+                background-color: transparent;
+        
+            .description-wrap-default{
+                margin-top: 1rem;
+                margin-left: 2rem;
+                margin-bottom: 2rem;
+                .descript-text{
+                    -moz-appearance: textfield-multiline;
+                    -webkit-appearance: textarea;
+                    color: 	#505050;
+                    border-radius: 0.2rem;
+                    background-color:  $light-gray;
+                    padding: 0.8rem;
+                    font-size: 0.9rem;
+                    outline: none;
+                    &:empty:before{
+                    content: attr(placeholder);
+                        color: #505050;
+                    }
+                
+                }
+                }
+                .description-wrap-show{
+                        margin-top: 1rem;
+                        margin-left: 2rem;
+                        .descript-text{
+                            -moz-appearance: textfield-multiline;
+                            -webkit-appearance: textarea;
+                            color: 	#505050;
+                            height: 3rem;
+                            border-radius: 0.2rem;
+                            background-color:white;
+                            padding: 0.8rem;
+                            font-size: 0.9rem;
+                            outline: 5px auto -webkit-focus-ring-color;
+                        
+                            &:empty:before{
+                            content: attr(placeholder);
+                                color: #505050;
+                            }
+                        }
+                        button{
+                            height:1.8rem;
+                            border-radius: 3px;
+                            background: $btn-green;
+                            color: white;
+                            padding: 5px 8px;
+                            margin: 0.8rem 0rem 1.8rem 0rem;
+                            &:hover{
+                                background: $btn-green-hover;
+                            }
+                        }
+                        .closeDescription{
+                                margin-left: 0.8rem;
+                                padding-right: 1rem;
+                                padding-top: 1rem;
+                                color:	#A9A9A9;
+                                &:hover{
+                                    color:black;
+                                }
+                        }
+                        
+    
+                }
+                .description-wrap-hide{
+                    margin-left: 2rem;
+                    color: 	#505050;
+                    padding: 0.8rem 0rem;
+                    font-size: 0.9rem;
+                
+                
+                }
+            
+                .show-detail-btn {
+                    border-radius: 3px;
+                    background: $light-gray;
+                    color: #505050;
+                    padding: 4px 8px;
+                    float:right;
+                    &:hover{
+                        background: #E0E0E0;
+                    }
+                }
+                
+                
+            }
+            .window-sidebar{
+               
+                width: 25%;
+                background-color: transparent;
+                font-size: 0.9rem;
+                color: 	#505050;
+    
+                .add-to-card{
+                    color: #808080; 
+                    font-size: 0.9rem;
+                    margin:0 0 0.5rem 0;
+                }
+    
+                ul{
+                    list-style-type: none;
+                    margin-top: 0;
+                    margin-left: 0;
+                    padding-left: 0;
+                    li{
+                    
+                        border-radius: 3px;
+                        background: $light-gray;
+                        color: #505050;
+                        padding: 7px 10px;
+                        margin-bottom: 0.5rem;
+                        margin-right: 1.5rem;
+                        &:hover{
+                            background: #E0E0E0;
+                        }
+                        i{
+                            margin-right: 0.5rem;
+                        }
+                    }
+                    li:last-child{
+                        margin-bottom: 1.5rem;
+                    }
+                }
+    
+                button{
+                
+                        border-radius: 3px;
+                        width: 87%;
+                        background: $light-gray;
+                        color: #505050;
+                        padding: 7px 10px;
+                        margin-bottom: 1.5rem;
+                        margin-right: 1.5rem;
+                        &:hover{
+                            background: #E0E0E0;
+                        }
+                }
+            }
+            @media (max-width: 850px) {  
+                &{  
+                    display:inline;
+                     .window-main-col{
+                        width: auto;
+                     }
+
+                     .window-sidebar{
+                        width: auto;
+                        margin-left:1.5rem;
+                        ul{
+                            display: grid;  
+                            grid-gap: 5px;  
+                            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                            grid-template-rows: repeat(2, auto);   
+                            li:last-child{
+                                margin-bottom: 0rem;
+                            }
+                        } 
+                    }
+                   
+                }
+              }
+             
+        }
+        
+           
+    
+   
+
+  
+   
+    
+}

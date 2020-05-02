@@ -1,0 +1,62 @@
+.new-activity-form{
+  
+    .comment-text-area{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        justify-content: space-between;
+        display: flex;
+       
+        .initials {
+            margin: 0.5rem 1rem 0.5rem -0.5rem;
+            font-size: 0.75em;
+            padding: 5px;
+            width: 28px;
+            height: 28px;
+            border-radius: 2rem;
+        }
+         
+        .comment-text {
+            -moz-appearance: textfield-multiline;
+            -webkit-appearance: textarea;
+            color: 	#505050;
+            border-radius: 0.2rem;
+            padding: 0.8rem;
+            font-size: 0.9rem;
+            outline: none;
+         
+            &:empty:before{
+              content: attr(placeholder);
+              color: #808080;
+           
+            }
+           
+        }
+        .textarea-wrap{
+            width:95%;
+            border:solid 1px #C8C8C8;
+            border-radius: 0.2rem;
+            height:auto;
+            background-color: white;
+            
+            &:hover{
+                box-shadow: 0 5px 5px $medium-dark-trans;
+                transition: all 0.3s ease-in-out;
+            }
+            .save-comment {
+             
+                .i-group{
+                  float: right;
+                  margin-right:1rem;
+                  i{
+                      margin-left: 1.5rem;
+                      color: #505050;
+                      padding-top: 10px;
+                      right: 0;
+                      
+                  }
+                }
+                }
+             }
+      
+        }
+}
